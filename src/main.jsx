@@ -7,5 +7,5 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GlobalStyles />
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
