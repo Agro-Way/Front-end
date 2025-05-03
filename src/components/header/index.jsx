@@ -1,16 +1,16 @@
-import { Container } from "./styles";
+import { Container, Content } from './styles'
 
-export function Header(){
-    return (
-        <Container>
-            <div>
-                <h1>AgroWey</h1>
-                <nav></nav>
-                <div>
-                    <input />
-                    <button></button>
-                </div>
-            </div>
-        </Container>
-    )
+export function Header() {
+  return (
+    <Container>
+      <Content>
+        <h1>AgroWey</h1>
+        <nav></nav>
+        <div>
+          <input />
+          <button></button>
+        </div>
+      </Content>
+    </Container>
+  )
 }
