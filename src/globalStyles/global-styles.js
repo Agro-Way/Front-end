@@ -8,16 +8,22 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body{
     font-family: "National Park", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1.6rem;
   }
 
   button {
     cursor: pointer;
     background: transparent;
     border: none;
+    font-family: inherit;
   }
 
   input {

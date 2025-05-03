@@ -4,7 +4,8 @@ export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 20rem;
+  margin-block: 3.2rem;
+
 
   button {
     width: 100%;
@@ -14,12 +15,12 @@ export const ButtonContainer = styled.div`
     border: none;
     border-radius: 1.25rem;
     cursor: pointer;
-    font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    font-size: 1.6rem;
 
     &:hover {
-      background-color: #4ad66d;
+      background-color:rgb(11, 99, 33);
     }
   }
 
