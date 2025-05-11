@@ -31,7 +31,7 @@ export function Signup() {
               <Button>Entrar</Button>
             </Form>
             <p>
-              Já possui uma conta? <Link to="/">Entre</Link>
+              Já possui uma conta? <Link to="/signin">Entre</Link>
             </p>
           </Headline>
         </SignupContainer>
