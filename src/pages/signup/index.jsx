@@ -28,7 +28,7 @@ export function Signup() {
                 type="password"
                 icon={<Lock color="#6c757d" size={20} />}
               />
-              <Button>Entrar</Button>
+              <Button>Cadastrar</Button>
             </Form>
             <p>
               Já possui uma conta? <Link to="/signin">Entre</Link>
