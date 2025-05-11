@@ -9,12 +9,12 @@ export const ButtonContainer = styled.div`
 
   button {
     width: 100%;
-    height: 3.125rem;
+    height: 5.2rem;
     background-color: #2dc653;
     color: #fff;
     border: none;
-    border-radius: 1.25rem;
-    cursor: pointer;
+    border-radius: 2rem;
+    /* padding: 1.6rem 2.4rem; */
     font-weight: bold;
     transition: background-color 0.3s ease;
     font-size: 1.6rem;
