@@ -46,7 +46,6 @@ function AppContent() {
         <Route path="/blog/post/" element={<Post />} />
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/contato" element={<Contato />} />
-        <Route path="/teste" element={<Teste />} />
 
         {/*Rotas do dashboard com layout específico*/}
         <Route
