@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
+
 function Blog() {
   useDocumentTitle("Blog | Agroway");
 
@@ -17,6 +18,43 @@ function Blog() {
       <section class="sub-heading">
         <h1>Nosso Blog</h1>
       </section>
+
+      {/*categorias*/}
+      {/*<section>
+        <div class="category">
+          <div class="swiper category-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide">
+                <a href="#">Notícias</a>
+              </div>
+              <div class="swiper-slide slide">
+                    <a href="#">Desporto</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Sociedade</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Música</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Ciência</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Tecnologia</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Cultura</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Saúde</a>
+              </div>
+              <div class="swiper-slide slide">
+                <a href="#">Entretenimento</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>*/}
 
       {/*blogs*/}
       <section className="blog">

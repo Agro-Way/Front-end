@@ -1,3 +1,13 @@
+import { createGlobalStyle } from 'styled-components';
+import headingImg from '@/assets/img/heading.jpg';
+import smallImgOne from '@/assets/img/small-1.jpg';
+import smallImgTwo from '@/assets/img/small-2.jpg';
+import largeImgOne from '@/assets/img/large-1.jpg';
+import largeImgTwo from '@/assets/img/large-2.jpg';
+import parallaxImg from '@/assets/img/parallax.jpg';
+
+const GlobalStyle = createGlobalStyle`
+
 @charset "UTF-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
@@ -93,7 +103,7 @@ section, footer{
 
 .sub-heading{
     min-height: 50vh;
-    background: url(../img/heading.jpg) no-repeat;
+    background: url(${headingImg}) no-repeat;
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -334,19 +344,19 @@ section, footer{
 	flex-basis: 60%;
 }
 #small-1{
-	background-image: url('../img/small-1.jpg');
+	background-image: url(${smallImgOne});
 	background-size: cover;
 }
 #small-2{
-	background-image: url('../img/small-2.jpg');
+	background-image: url(${smallImgTwo});
 	background-size: cover;
 }
 #large-1{
-	background-image: url('../img/large-1.jpg');
+	background-image: url(${largeImgOne});
 	background-size: cover;
 }
 #large-2{
-	background-image: url('../img/large-2.jpg');
+	background-image: url(${largeImgTwo});
 	background-size: cover;
 }
 /*banner end*/
@@ -460,7 +470,7 @@ section, footer{
 
 /*parallax*/
 .parallax{
-    background: url(../img/parallax.jpg) no-repeat;
+    background: url(${parallaxImg}) no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -733,3 +743,5 @@ section, footer{
         font-size: 50%;
     }
 }
+`
+export default GlobalStyle;

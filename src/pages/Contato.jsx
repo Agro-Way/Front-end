@@ -4,7 +4,8 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import contactImg from "../assets/img/contact.png";
-import './../assets/css/contato.css'
+//import './../assets/css/contato.css'
+import ContactStyle from '@/assets/css/ContactStyle';
 
 function Contato() {
   useDocumentTitle("Contato | Agroway");
@@ -20,7 +21,7 @@ function Contato() {
       </section>
 
       {/*infos*/}
-      <section className="infos">
+      <ContactStyle className="infos">
         <div className="info-container">
           <div className="info">
             <i className="fas fa-clock"></i>
@@ -41,10 +42,10 @@ function Contato() {
             <address>Angola, Luanda</address>
           </div>
         </div>
-      </section>
+      </ContactStyle>
 
       {/*contato*/}
-      <section class="contact" id="contact">
+      <ContactStyle className="contact">
         <h1 class="heading">Preencha O <span>Formulário</span></h1>
 
         <div class="row">
@@ -70,7 +71,7 @@ function Contato() {
             <button type="submit" class="btn">Enviar Mensagem</button>
           </form>
         </div>
-      </section>
+      </ContactStyle>
 
       {/*footer*/}
       <Footer />

@@ -8,7 +8,8 @@ import sobreImg from "../assets/img/sobre2.jpg";
 import sobreFocus1 from "../assets/img/focus-1.jpg";
 import sobreFocus2 from "../assets/img/focus-2.jpg";
 import sobreFocus3 from "../assets/img/focus-3.jpg";
-import './../assets/css/sobre.css';
+//import './../assets/css/sobre.css';
+import AboutStyle from '@/assets/css/AboutStyle';
 
 function Sobre() {
   useDocumentTitle("Sobre | Agroway");
@@ -43,7 +44,7 @@ function Sobre() {
       </section>
 
       {/*section-about*/}
-      <section className="section-about">
+      <AboutStyle className="section-about">
         <div className="content">
           <h3>IMPULSIONE SEU NEGÓCIO NA AGROWAY</h3>
           <p>
@@ -51,10 +52,10 @@ function Sobre() {
           </p>
           <Link to="#" className="btn">Cadastrar</Link>
         </div>
-      </section>
+      </AboutStyle>
 
       {/*focus*/}
-      <section className="focus">
+      <AboutStyle className="focus">
         <h3 className="heading">Nossas <span>Prioridades</span></h3>
 
         <div className="box-container">
@@ -101,7 +102,7 @@ function Sobre() {
             </div>
           </div>
         </div>
-      </section>
+      </AboutStyle>
       
 
       {/*footer*/}
