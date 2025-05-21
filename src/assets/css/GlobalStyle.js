@@ -684,7 +684,7 @@ section, footer{
 .footer .box-container .box .links{
     display: block;
     font-size: 1.6rem;
-    color: var(--grey);
+    color: var(--white);
     padding: 1rem 0;
 }
 .footer .box-container .box .links:hover{
