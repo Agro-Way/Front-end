@@ -8,10 +8,6 @@ import parallaxImg from '@/assets/img/parallax.jpg';
 
 const GlobalStyle = createGlobalStyle`
 
-@charset "UTF-8";
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
-
 :root{
     --main: #063d1e;
     --primary: #2fa866;
