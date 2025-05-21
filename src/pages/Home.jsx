@@ -27,12 +27,6 @@ function Home() {
           <video src={homeVideo} id="video" loop autoPlay muted type="video/mp4"></video>
         </div>
       </section>
-      {/*<section className="home">
-        <div className="content">
-            <h3>Agroway Limited</h3>
-            <Link to="#" className="btn">Iniciar Agora</Link>
-        </div>
-      </section>*/}
 
       {/*about*/}
       <section className="about">
@@ -190,7 +184,7 @@ function Home() {
         </div>
 
         <div className="d-flex pt-8">
-        <Link to="/produtos" className="btn">Ver Mais Produtos <i class="fas fa-arrow-right"></i></Link>
+        <Link to="/produtos" className="btn">Ver Mais Produtos <i className="fas fa-arrow-right"></i></Link>
         </div>
       </section>
 
