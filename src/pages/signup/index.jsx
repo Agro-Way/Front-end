@@ -10,7 +10,7 @@ export function Signup() {
       <div>
         <SignupContainer>
           <Headline>
-            <h1>Resgistre-se na nossa plataforma</h1>
+            <h1>Registre-se na nossa plataforma</h1>
             <Form>
               <Input
                 placeholder="Digite o seu nome"
