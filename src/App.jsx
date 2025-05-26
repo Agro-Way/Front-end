@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 // Estilo global
 // import './assets/css/style.css'; 
 //import GlobalStyle from './assets/css/GlobalStyle';
-import { GlobalStyle } from './globalStyles/GlobalStyle'
+import  GlobalStyle  from './globalStyles/GlobalStyle'
 
 // Layout
 import DashboardLayout from './layouts/DashboardLayout';
