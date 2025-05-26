@@ -63,10 +63,10 @@ function Sobre() {
             <div class="image">
               <img src={sobreFocus1} alt="Prioridade 1: Clientes"/>
               <div class="share">
-                <a href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora"></a>
-                <a href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp"></a>
-                <a href="#" class="fab fa-instagram" title="Ver Instagram"></a>
-                </div>
+                <Link href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora" />
+                <Link  href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp" />
+                <Link  href="#" class="fab fa-instagram" title="Ver Instagram" />
+              </div>
             </div>
             <div class="content">
               <h3>Clientes</h3>
@@ -77,10 +77,10 @@ function Sobre() {
             <div class="image">
               <img src={sobreFocus2}  alt="Prioridade 2: Motoristas"/>
               <div class="share">
-                <a href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora"></a>
-                <a href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp"></a>
-                <a href="#" class="fab fa-instagram" title="Ver Instagram"></a>
-                </div>
+                <Link href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora" />
+                <Link  href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp" />
+                <Link  href="#" class="fab fa-instagram" title="Ver Instagram" />
+              </div>
             </div>
             <div class="content">
               <h3>Motoristas</h3>
@@ -91,10 +91,10 @@ function Sobre() {
             <div class="image">
               <img src={sobreFocus3}  alt="Prioridade 3: Produtores"/>
               <div class="share">
-                <a href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora"></a>
-                <a href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp"></a>
-                <a href="#" class="fab fa-instagram" title="Ver Instagram"></a>
-                </div>
+                <Link href="tel:+244 999999999" class="fas fa-phone" title="Ligar Agora" />
+                <Link  href="https://api.whatsapp.com/send/?phone=244999999999&text=Oi" target="_blank" class="fab fa-whatsapp" title="Enviar mensagem via Whatsapp" />
+                <Link  href="#" class="fab fa-instagram" title="Ver Instagram" />
+              </div>
             </div>
             <div class="content">
               <h3>Produtores</h3>

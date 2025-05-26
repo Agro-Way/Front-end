@@ -19,8 +19,8 @@ function Post() {
       <PostReadStyle className="post-read pt-8">
         <h1>Duis aute irure dolor in reprehenderit in voluptate velit</h1>
         <div className="data">
-            <span><i className="fas fa-calendar"></i> Postado: 24/04/2025</span>
-            <span><i className="fas fa-calendar"></i> Última atualização: 6/05/2025</span>
+            <span><i className="fas fa-calendar" /> Postado: 24/04/2025</span>
+            <span><i className="fas fa-calendar" /> Última atualização: 6/05/2025</span>
         </div>
         <div className="post-img">
             <a href={postImg}>

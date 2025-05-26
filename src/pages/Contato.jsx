@@ -24,20 +24,20 @@ function Contato() {
       <ContactStyle className="infos">
         <div className="info-container">
           <div className="info">
-            <i className="fas fa-clock"></i>
+            <i className="fas fa-clock" />
             <h3>Hora De Abertura</h3>
             <p>Segunda - Quinta: 08:00 - 16:00</p>
             <p>Sexta-feira: 09:00 - 14:00</p>
           </div>
 
           <div className="info">
-            <i className="fas fa-phone"></i>
+            <i className="fas fa-phone" />
             <h3>Nosso Telefone</h3>
             <p>+244 999999999</p>
           </div>
 
           <div className="info">
-            <i className="fas fa-map-marker-alt"></i>
+            <i className="fas fa-map-marker-alt" />
             <h3>Nosso Endereço</h3>
             <address>Angola, Luanda</address>
           </div>
@@ -65,7 +65,7 @@ function Contato() {
             </div>
 
             <div class="inputBox">
-              <textarea name="msg" placeholder="Sua mensagem..." cols="30" rows="10" required></textarea>
+              <textarea name="msg" placeholder="Sua mensagem..." cols="30" rows="10" required />
             </div>
 
             <button type="submit" class="btn">Enviar Mensagem</button>

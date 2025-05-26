@@ -24,7 +24,7 @@ function Home() {
         </div>
 
         <div className="video-container">
-          <video src={homeVideo} id="video" loop autoPlay muted type="video/mp4"></video>
+          <video src={homeVideo} id="video" loop autoPlay muted type="video/mp4" />
         </div>
       </section>
 
@@ -49,10 +49,10 @@ function Home() {
       {/*banner*/}
       <section className="banner">
         <ul className="grid">
-          <li className="small small-1" id="small-1" ></li>
-          <li className="large" id="large-1"></li>
-          <li className="large" id="large-2"></li>
-          <li className="small" id="small-2"></li>
+          <li className="small small-1" id="small-1" />
+          <li className="large" id="large-1" />
+          <li className="large" id="large-2" />
+          <li className="small" id="small-2" />
         </ul>
       </section>
 
@@ -62,37 +62,37 @@ function Home() {
 
         <div className="box-container">
           <div className="box">
-            <i className="fas fa-truck"></i>
+            <i className="fas fa-truck" />
             <h3>Transporte</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
 
           <div className="box">
-            <i className="fas fa-bug-slash"></i>
+            <i className="fas fa-bug-slash" />
             <h3>Insecticida</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
 
           <div className="box">
-            <i className="fas fa-apple-whole"></i>
+            <i className="fas fa-apple-whole" />
             <h3>Frutas</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
 
           <div className="box">
-            <i className="fas fa-leaf"></i>
+            <i className="fas fa-leaf" />
             <h3>Vegetais</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
 
           <div className="box">
-            <i className="fas fa-carrot"></i>
+            <i className="fas fa-carrot" />
             <h3>Legumes</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
 
           <div className="box">
-            <i className="fas fa-apple-whole"></i>
+            <i className="fas fa-apple-whole" />
             <h3>Frutas</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
@@ -111,9 +111,9 @@ function Home() {
             <div className="content">
               <h3>Grãos</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
 
@@ -124,9 +124,9 @@ function Home() {
             <div className="content">
               <h3>Melancia</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
 
@@ -137,9 +137,9 @@ function Home() {
             <div className="content">
               <h3>Folhas</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
 
@@ -150,9 +150,9 @@ function Home() {
             <div className="content">
               <h3>Ananás</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
 
@@ -163,9 +163,9 @@ function Home() {
             <div className="content">
               <h3>Melancia 2</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
 
@@ -176,15 +176,15 @@ function Home() {
             <div className="content">
               <h3>Folhas 2</h3>
               <div className="price">100Kz</div>
-              <div></div>
-              <Link to="#" className="fas fa-shopping-cart"></Link>
-              <Link to="#" className="fas fa-eye"></Link>
+              <div />
+              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="#" className="fas fa-eye" />
             </div>
           </div>
         </div>
 
         <div className="d-flex pt-8">
-        <Link to="/produtos" className="btn">Ver Mais Produtos <i className="fas fa-arrow-right"></i></Link>
+        <Link to="/produtos" className="btn">Ver Mais Produtos <i className="fas fa-arrow-right" /></Link>
         </div>
       </section>
 
@@ -210,7 +210,7 @@ function Home() {
             </div>
             <div className="content">
               <div className="icons">
-                <a href="#"><i className="fas fa-user"></i> Por Admin</a>
+                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
               </div>
               <h3>Vegetais Saudáveis Para Experimentar</h3>
               <p>
@@ -226,7 +226,7 @@ function Home() {
             </div>
             <div className="content">
               <div className="icons">
-                <a href="#"><i className="fas fa-user"></i> Por Admin</a>
+                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
               </div>
               <h3>Vegetais Saudáveis Para Experimentar</h3>
               <p>
@@ -242,7 +242,7 @@ function Home() {
             </div>
             <div className="content">
               <div className="icons">
-                <a href="#"><i className="fas fa-user"></i> Por Admin</a>
+                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
               </div>
               <h3>Vegetais Saudáveis Para Experimentar</h3>
               <p>
