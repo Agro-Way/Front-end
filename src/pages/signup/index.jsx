@@ -10,7 +10,7 @@ export function Signup() {
       <div>
         <SignupContainer>
           <Headline>
-            <h1>Resgistre-se na nossa plataforma</h1>
+            <h1>Registre-se na nossa plataforma</h1>
             <Form>
               <Input
                 placeholder="Digite o seu nome"
@@ -28,7 +28,7 @@ export function Signup() {
                 type="password"
                 icon={<Lock color="#6c757d" size={20} />}
               />
-              <Button>Entrar</Button>
+              <Button>Cadastrar</Button>
             </Form>
             <p>
               Já possui uma conta? <Link to="/">Entre</Link>
