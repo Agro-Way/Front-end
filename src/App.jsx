@@ -17,6 +17,7 @@ import Produtos from './pages/Produtos';
 import Contato from './pages/Contato';
 import Post from './pages/Post';
 import Carrinho from './pages/Carrinho';
+import Checkout from './pages/Checkout';
 import NotFound from './pages/NotFound';
 
 // Páginas do dashboard
@@ -49,6 +50,7 @@ function AppContent() {
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         {/*Rotas do dashboard com layout específico*/}
         <Route
