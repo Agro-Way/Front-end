@@ -80,7 +80,7 @@ function Carrinho() {
               <div className="botoes-finais">
                 <Link to="/produtos"><button type="button" className="btn continuar-btn">Continuar Comprando</button></Link>
                 <button type="submit" formAction="/limpar-carrinho" className="btn limpar-btn">Limpar Carrinho</button>
-                <button type="submit" formAction="/checkout" className="btn checkout-btn">Finalizar Compra</button>
+                <Link to="/checkout"><button type="button" className="btn checkout-btn">Finalizar Compra</button></Link>
               </div>
             </form>
           </div>
