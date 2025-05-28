@@ -14,11 +14,11 @@ function Carrinho() {
 
   return (
     <>
-        {/*Header*/}
-        <Header />
+      {/*Header*/}
+      <Header />
 
-        {/*Carrinho*/}
-        <section className="carrinhos pt-8">
+      {/*Carrinho*/}
+      <section className="carrinhos pt-8">
           <div className="carrinho">
             <h2>Carrinho de Compras</h2>
             <form action="/atualizar-carrinho" method="POST">
@@ -84,10 +84,10 @@ function Carrinho() {
               </div>
             </form>
           </div>
-        </section>
+      </section>
 
-        {/*footer*/}
-        <Footer />
+      {/*footer*/}
+      <Footer />
     </>
   );
 }
