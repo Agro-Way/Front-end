@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.header-category{
+    padding: 1.4rem 7%;
+    border-bottom: .1rem solid #eee;
+}
+.header-category .category-slider{
+	padding: 1rem;
+}
+.header-category .slide a{
+    font-size: 1.6rem;
+    padding: 1rem;
+    background-color: var(--main);
+    border-radius: .5rem;
+    color: var(--white);
+}
+.header-category .slide a:hover{
+    background-color: var(--primary);
+}
