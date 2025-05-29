@@ -1,2 +1,70 @@
 @charset "UTF-8";
 
+.form {
+    max-width: 80rem;
+    margin: auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+}
+.form .title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-bottom: .1rem solid #ccc;
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.form h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: .1rem solid #ccc;
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+}
+.form .form-group {
+    margin-bottom: 1.5rem;
+}
+.form .total {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.form .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.form .product img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: .5rem;
+    margin-right: 1.5rem;
+}
+.form .product-details {
+    flex-grow: 1;
+}
+.form .product-details p{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.form .box{
+    width: 100%;
+    padding: 1rem 1.1rem;
+    border: var(--border);
+    font-size: 1.6rem;
+    margin: .7rem 0;
+    border-radius: .5rem;
+}
+.form textarea{
+    height: 15rem;
+    resize: none;
+}
+.form .btn {
+    width: 100%;
+    border-radius: .5rem;
+}
+

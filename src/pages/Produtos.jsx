@@ -36,7 +36,7 @@ function Produtos() {
               <h3>Grãos</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
@@ -49,7 +49,7 @@ function Produtos() {
               <h3>Melancia</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
@@ -62,7 +62,7 @@ function Produtos() {
               <h3>Folhas</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
@@ -75,7 +75,7 @@ function Produtos() {
               <h3>Ananás</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
@@ -88,7 +88,7 @@ function Produtos() {
               <h3>Melancia 2</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
@@ -101,7 +101,7 @@ function Produtos() {
               <h3>Folhas 2</h3>
               <div className="price">100Kz</div>
               <div />
-              <Link to="#" className="fas fa-shopping-cart" />
+              <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
             </div>
           </div>
