@@ -1,12 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-// Estilo global
-// import './assets/css/style.css'; 
-//import GlobalStyle from './assets/css/GlobalStyle';
-import  GlobalStyle  from './globalStyles/GlobalStyle'
+// Estilo global (apenas para o site)
+import GlobalStyle from './globalStyles/GlobalStyle';
 
-// Layout
+// Layout do dashboard
 import DashboardLayout from './layouts/DashboardLayout';
 
 // Páginas do site
@@ -21,28 +19,25 @@ import Checkout from './pages/Checkout';
 import NotFound from './pages/NotFound';
 
 // Páginas do dashboard
-import OverviewPage from "./dashboard/pages/OverviewPage";
-import ProductsPage from "./dashboard/pages/ProductsPage";
-import UsersPage from "./dashboard/pages/UsersPage";
-import SalesPage from "./dashboard/pages/SalesPage";
-import OrdersPage from "./dashboard/pages/OrdersPage";
-import AnalyticsPage from "./dashboard/pages/AnalyticsPage";
-import SettingsPage from "./dashboard/pages/SettingsPage";
+import OverviewPage from './dashboard/pages/OverviewPage';
+import ProductsPage from './dashboard/pages/ProductsPage';
+import UsersPage from './dashboard/pages/UsersPage';
+import SalesPage from './dashboard/pages/SalesPage';
+import OrdersPage from './dashboard/pages/OrdersPage';
+import AnalyticsPage from './dashboard/pages/AnalyticsPage';
+import SettingsPage from './dashboard/pages/SettingsPage';
 
-// Componente separado para usar useLocation corretamente
-function AppContent() {
+function AppRoutes() {
   const location = useLocation();
- // console.log("Localização atual:", location);
-
-  // Aplica GlobalStyle apenas fora do dashboard
-  const isDashboardRoute = location.pathname.startsWith('/dashboard');
-  
+  const isDashboard = location.pathname.startsWith('/dashboard');
 
   return (
     <>
-      {!isDashboardRoute && <GlobalStyle />}
+      {/* Aplica estilos globais somente fora do dashboard */}
+      {!isDashboard && <GlobalStyle />}
+
       <Routes>
-        {/*Rotas do site principal*/}
+        {/* Rotas do site */}
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/blog" element={<Blog />} />
@@ -52,65 +47,16 @@ function AppContent() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/checkout" element={<Checkout />} />
 
-        {/*Rotas do dashboard com layout específico*/}
-        <Route
-          path="/dashboard"
-          element={
-            <DashboardLayout>
-              <OverviewPage />
-            </DashboardLayout>
-          }
-        />
-				<Route
-          path="/dashboard/produtos"
-          element={
-            <DashboardLayout>
-              <ProductsPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/dashboard/clientes"
-          element={
-            <DashboardLayout>
-              <UsersPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/dashboard/vendas"
-          element={
-            <DashboardLayout>
-              <SalesPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/dashboard/pedidos"
-          element={
-            <DashboardLayout>
-              <OrdersPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/dashboard/analises"
-          element={
-            <DashboardLayout>
-              <AnalyticsPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/dashboard/definicoes"
-          element={
-            <DashboardLayout>
-              <SettingsPage />
-            </DashboardLayout>
-          }
-        />
+        {/* Rotas do dashboard com layout exclusivo */}
+        <Route path="/dashboard" element={<DashboardLayout><OverviewPage /></DashboardLayout>} />
+        <Route path="/dashboard/produtos" element={<DashboardLayout><ProductsPage /></DashboardLayout>} />
+        <Route path="/dashboard/clientes" element={<DashboardLayout><UsersPage /></DashboardLayout>} />
+        <Route path="/dashboard/vendas" element={<DashboardLayout><SalesPage /></DashboardLayout>} />
+        <Route path="/dashboard/pedidos" element={<DashboardLayout><OrdersPage /></DashboardLayout>} />
+        <Route path="/dashboard/analises" element={<DashboardLayout><AnalyticsPage /></DashboardLayout>} />
+        <Route path="/dashboard/definicoes" element={<DashboardLayout><SettingsPage /></DashboardLayout>} />
 
-        {/*Rotas não encontradas*/}
+        {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
@@ -120,7 +66,7 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <AppRoutes />
     </Router>
   );
 }
