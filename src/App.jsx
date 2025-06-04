@@ -26,6 +26,7 @@ import SalesPage from './dashboard/pages/SalesPage';
 import OrdersPage from './dashboard/pages/OrdersPage';
 import AnalyticsPage from './dashboard/pages/AnalyticsPage';
 import SettingsPage from './dashboard/pages/SettingsPage';
+import DashboardNotFound from './dashboard/pages/DashboardNotFound';
 
 function AppRoutes() {
   const location = useLocation();
@@ -57,7 +58,11 @@ function AppRoutes() {
         <Route path="/dashboard/definicoes" element={<DashboardLayout><SettingsPage /></DashboardLayout>} />
 
         {/* 404 */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={
+          isDashboard
+          ? <DashboardLayout><DashboardNotFound /></DashboardLayout> // Dashboard NotFound com layout e estilos do dashboard
+          : <NotFound /> } 
+        />
       </Routes>
     </>
   );
