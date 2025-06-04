@@ -16,6 +16,8 @@ import Contato from './pages/Contato';
 import Post from './pages/Post';
 import Carrinho from './pages/Carrinho';
 import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import NotFound from './pages/NotFound';
 
 // Páginas do dashboard
@@ -47,6 +49,8 @@ function AppRoutes() {
         <Route path="/contato" element={<Contato />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastrar" element={<Signup />} />
 
         {/* Rotas do dashboard com layout exclusivo */}
         <Route path="/dashboard" element={<DashboardLayout><OverviewPage /></DashboardLayout>} />
