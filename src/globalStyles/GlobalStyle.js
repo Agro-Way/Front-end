@@ -256,27 +256,6 @@ section, footer{
     height: 100%;
     object-fit: cover;
 }
-/*.home{
-	min-height: 95vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: linear-gradient(to bottom, rgba(6, 18, 30, .1), #06121e), url('../img/home.jpg') no-repeat;
-	background-size: cover;
-	background-position: center;
-	width: 100vw;
-}
-.home .content{
-	max-width: 60rem;
-	text-align: center;
-}
-.home .content h3{
-	font-size: 5rem;
-	text-transform: capitalize;
-	color: var(--white);
-	padding-bottom: 3.5rem;
-}*/
-/*home end*/
 
 /*about*/
 .about .row{
