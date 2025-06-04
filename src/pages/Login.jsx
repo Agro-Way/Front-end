@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import sobreFocus3 from "../assets/img/focus-3.jpg";
-//import './../assets/css/login.css';
+import './../assets/css/login.css';
 //import LoginStyle from '@/assets/css/LogintStyle';
 
 function Login() {
@@ -13,6 +13,21 @@ function Login() {
     <>
       {/*login*/}
       <section className="login">
+         <h1 className="title">Agroway</h1>
+
+        <form action="" method="POST" className="login-form" autoComplete="on">
+            <h3>Faça o Seu Login</h3>
+            <input type="email" name="email" placeholder="exemplo@gmail.com" className="box" required />
+            <input type="password" name="senha" placeholder="Sua Palavra-Pass" className="box" required />
+            {/*<div class="remember">
+               <input type="checkbox" name="lembrar" id="lembrar" />
+               <label for="lembrar">Lembrar de mim</label>
+            </div>*/}
+            
+            <input type="submit" name="entrar" value="Entrar" className="btn" />
+            <p>Esqueceu a senha? <Link to="/recuperar-conta">Recuperar senha</Link></p>
+            <p>Não tenho uma conta? <Link to="#">Criar conta</Link></p>
+        </form>
       </section>
     </>
   );
