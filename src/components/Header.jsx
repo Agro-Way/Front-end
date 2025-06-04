@@ -41,7 +41,7 @@ function Header() {
       </nav>
 
       <div className="icons">
-        <Link to="#"
+        <Link to="/login"
           className="fas fa-user"
           id="login-btn"
         />
