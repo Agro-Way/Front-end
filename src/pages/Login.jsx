@@ -24,7 +24,7 @@ function Login() {
             </div>*/}
             
             <input type="submit" name="entrar" value="Entrar" className="btn" />
-            <p>Esqueceu a senha? <Link to="/recuperar-conta">Recuperar senha</Link></p>
+            <p>Esqueceu a senha? <Link to="/recuperar-senha">Recuperar senha</Link></p>
             <p>Não tenho uma conta? <Link to="/cadastrar">Criar conta</Link></p>
         </form>
       </section>
