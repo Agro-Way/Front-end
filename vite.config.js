@@ -4,6 +4,7 @@ import path from 'node:path'   // <== Importar o path
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  base: './', // 👈 ISSO É ESSENCIAL PARA O DEPLOY FUNCIONAR DIREITO
   plugins: [react(),  tailwindcss(),],
   resolve: {
     alias: {
