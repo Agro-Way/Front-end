@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 :root{
     --main: #063d1e;
     --primary: #2fa866;
-    --secondary :#ffba43;
+    --secondary: #ffba43;
     --light-green: #c3e3d4;
     --black: #000;
     --light-black: #2c2929;
@@ -136,6 +136,9 @@ section, footer{
     padding: 1.5rem 7%;
 }
 .header .logo{
+    color: var(--secondary);
+}
+.header .logo span{
     font-size: 2.5rem;
     font-weight: bolder;
     color: var(--main);

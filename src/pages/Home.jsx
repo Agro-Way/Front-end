@@ -109,8 +109,8 @@ function Home() {
               <img src="images/product-1.jpg" alt="Produto 1" />
             </div>
             <div className="content">
-              <h3>Grãos</h3>
-              <div className="price">100Kz</div>
+              <h3>25 Kilos De Grãos</h3>
+              <div className="price">15.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
@@ -122,8 +122,8 @@ function Home() {
               <img src="images/product-2.jpg" alt="Produto 2" />
             </div>
             <div className="content">
-              <h3>Melancia</h3>
-              <div className="price">100Kz</div>
+              <h3>Cesto De Melancia</h3>
+              <div className="price">18.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
@@ -135,8 +135,8 @@ function Home() {
               <img src="images/product-3.jpg" alt="Produto 3" />
             </div>
             <div className="content">
-              <h3>Folhas</h3>
-              <div className="price">100Kz</div>
+              <h3>Cesto De Folhas</h3>
+              <div className="price">20.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
@@ -148,8 +148,8 @@ function Home() {
               <img src="images/product-4.jpg" alt="Produto 4" />
             </div>
             <div className="content">
-              <h3>Ananás</h3>
-              <div className="price">100Kz</div>
+              <h3>Cesto de Ananás</h3>
+              <div className="price">30.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
@@ -161,8 +161,8 @@ function Home() {
               <img src="images/product-2.jpg" alt="Produto 2" />
             </div>
             <div className="content">
-              <h3>Melancia 2</h3>
-              <div className="price">100Kz</div>
+              <h3>Cesto De 100 Melancias</h3>
+              <div className="price">40.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />
@@ -174,8 +174,8 @@ function Home() {
               <img src="images/product-3.jpg" alt="Produto 3" />
             </div>
             <div className="content">
-              <h3>Folhas 2</h3>
-              <div className="price">100Kz</div>
+              <h3>Cestto de 500 Folhas</h3>
+              <div className="price">100.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
               <Link to="#" className="fas fa-eye" />

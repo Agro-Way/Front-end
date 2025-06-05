@@ -30,7 +30,7 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to="/" className="logo">Agroway</Link>
+      <Link to="/" className="logo">Agro<span>way</span></Link>
 
       <nav className={`navbar ${menuAtivo ? "active" : ""}`}>
         <Link to="/">Home</Link>
