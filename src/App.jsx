@@ -18,7 +18,7 @@ import Carrinho from './pages/Carrinho';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import RecuperarConta from './pages/RecuperarConta';
+import RecuperarSenha from './pages/RecuperarSenha';
 import NotFound from './pages/NotFound';
 
 // Páginas do dashboard
@@ -52,7 +52,7 @@ function AppRoutes() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastrar" element={<Signup />} />
-        <Route path="/recuperar-conta" element={<RecuperarConta/>} />
+        <Route path="/recuperar-senha" element={<RecuperarSenha />} />
 
         {/* Rotas do dashboard com layout exclusivo */}
         <Route path="/dashboard" element={<DashboardLayout><OverviewPage /></DashboardLayout>} />
