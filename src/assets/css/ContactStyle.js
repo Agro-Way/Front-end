@@ -70,6 +70,7 @@ const ContactStyle = styled.section`
       .form {
         flex: 1 1 50rem;
         padding: 10rem 5rem 5rem 5rem;
+        box-shadow: none;
 
         .inputBox {
           display: flex;
