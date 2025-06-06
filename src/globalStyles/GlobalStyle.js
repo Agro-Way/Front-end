@@ -136,12 +136,12 @@ section, footer{
     padding: 1.5rem 7%;
 }
 .header .logo{
-    color: var(--secondary);
-}
-.header .logo span{
     font-size: 2.5rem;
     font-weight: bolder;
     color: var(--main);
+}
+.header .logo span{
+    color: var(--secondary);
 }
 .header .logo i{
     color: var(--main);
