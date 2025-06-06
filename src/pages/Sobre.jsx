@@ -50,7 +50,7 @@ function Sobre() {
           <p>
             Plataforma de qualidade significativa para o seu negócio, conectando produtores, motoristas e clientes.
           </p>
-          <Link to="#" className="btn">Cadastrar</Link>
+          <Link to="/cadastrar" className="btn">Cadastrar</Link>
         </div>
       </AboutStyle>
 
@@ -103,7 +103,6 @@ function Sobre() {
           </div>
         </div>
       </AboutStyle>
-      
 
       {/*footer*/}
       <Footer />
