@@ -20,7 +20,7 @@ function Home() {
         <div className="content">
           <h1>Agroway Limited</h1>
           <p>DÊ O IMPULSO QUE O SEU NEGÓCIO PRECISA</p>
-          <Link to="#" className="btn">Iniciar Agora</Link>
+          <Link to="/cadastrar" className="btn">Iniciar Agora</Link>
         </div>
 
         <div className="video-container">
@@ -174,7 +174,7 @@ function Home() {
               <img src="images/product-3.jpg" alt="Produto 3" />
             </div>
             <div className="content">
-              <h3>Cestto de 500 Folhas</h3>
+              <h3>Cesto de 500 Folhas</h3>
               <div className="price">100.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
@@ -195,7 +195,7 @@ function Home() {
           <p>
             Investir em produtos de qualidade pode trazer retornos significativos para o seu negócio, aumentando seus lucros e atraindo novos clientes.
           </p>
-          <Link to="#" className="btn">Cadastrar</Link>
+          <Link to="/cadastrar" className="btn">Cadastrar</Link>
         </div>
       </section>
 
