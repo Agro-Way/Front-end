@@ -549,6 +549,7 @@ section, footer{
     cursor: pointer;
     background: var(--white);
     -webkit-text-stroke: .1rem var(--black);
+    padding: 1rem;
 }
 .search-form button:hover{
     -webkit-text-stroke: .1rem var(--black);
