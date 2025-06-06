@@ -2,41 +2,41 @@
 
 /*infos*/
 .infos .info-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
 }
 .infos .info-container .info{
-    text-align: center;
-    padding: 2rem;
-    box-shadow: var(--box-shadow);
-    border: var(--border);
-    border-radius: .5rem;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  border-radius: .5rem;
 }
 .infos .info-container .info i{
-    font-size: 2rem;
-    line-height: 6rem;
-    width: 6rem;
-    height: 6rem;
-    margin: 1rem 0;
-    color: var(--white);
-    background-color: var(--primary);
-    border-radius: 50%;
+  font-size: 2rem;
+  line-height: 6rem;
+  width: 6rem;
+  height: 6rem;
+  margin: 1rem 0;
+  color: var(--white);
+  background-color: var(--primary);
+  border-radius: 50%;
 }
 .infos .info-container .info i:hover{
-    background-color: var(--main);
+  background-color: var(--main);
 }
 .infos .info-container .info h3{
-    font-size: 2rem;
-    font-weight: bolder;
-    color: var(--black);
-    padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--black);
+  padding: 1rem 0;
 }
 .infos .info-container .info p,
 .infos .info-container .info address{
-    font-size: 1.5rem;
-    line-height: 2;
-    color: #777;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #777;
 }
 
 /*contact*/
