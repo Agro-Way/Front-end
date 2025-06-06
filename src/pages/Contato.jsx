@@ -4,7 +4,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import contactImg from "../assets/img/contact.png";
-//import './../assets/css/contato.css'
+// import './../assets/css/contato.css'
 import ContactStyle from '@/assets/css/ContactStyle';
 
 function Contato() {
@@ -46,29 +46,29 @@ function Contato() {
 
       {/*contato*/}
       <ContactStyle className="contact">
-        <h1 class="heading">Preencha O <span>Formulário</span></h1>
+        <h1 className="heading">Preencha O <span>Formulário</span></h1>
 
-        <div class="row">
-          <div class="image">
+        <div className="row">
+          <div className="image">
             <img src={contactImg} alt="Nos Contacte" />
           </div>
 
-          <form action="" class="form">
-            <div class="inputBox">
+          <form action="" className="form">
+            <div className="inputBox">
               <input type="text" name="nome" placeholder="Seu nome" required />
               <input type="text" name="email" placeholder="exemplo@gmail.com" required />
             </div>
 
-            <div class="inputBox">
+            <div className="inputBox">
               <input type="tel" name="tel" placeholder="Seu telefone" required />
               <input type="text" name="assunto" placeholder="Seu assunto" required />
             </div>
 
-            <div class="inputBox">
+            <div className="inputBox">
               <textarea name="msg" placeholder="Sua mensagem..." cols="30" rows="10" required />
             </div>
 
-            <button type="submit" class="btn">Enviar Mensagem</button>
+            <button type="submit" className="btn">Enviar Mensagem</button>
           </form>
         </div>
       </ContactStyle>
