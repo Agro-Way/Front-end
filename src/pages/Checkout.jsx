@@ -19,7 +19,7 @@ function Checkout() {
 
       {/*Checkout*/}
       <section className="checkout pt-8">
-        <form action="" className="form" encType="multipart/form-data">
+        <form action="" className="form-checkout" encType="multipart/form-data">
           <h2 className="title">Resumo do Pedido</h2>
           <div className="form-group">
             <div class="product">
@@ -81,7 +81,7 @@ function Checkout() {
 
           <h2>Outros</h2>
           <input type="number" name="codigo-desconto" className="box" placeholder="Código de Desconto" required />
-          <textarea name="notas-adicionais" class="box" cols="30" rows="10" placeholder="Escreva aqui..." required />
+          <textarea name="notas-adicionais" class="box" cols="30" rows="10" placeholder="Escreva aqui alguma observação..." required />
 
           <button type="submit" className="btn">Finalizar Pedido</button>
         </form>
