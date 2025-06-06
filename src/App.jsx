@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Blog from './pages/Blog';
 import Produtos from './pages/Produtos';
-import Contato from './pages/Contato';
+import ConsultarPedido from './pages/ConsultarPedido';
 import Post from './pages/Post';
 import Carrinho from './pages/Carrinho';
 import Checkout from './pages/Checkout';
@@ -47,7 +47,7 @@ function AppRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/post/" element={<Post />} />
         <Route path="/produtos" element={<Produtos />} />
-        <Route path="/contato" element={<Contato />} />
+        <Route path="/consultar-pedido" element={<ConsultarPedido />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
