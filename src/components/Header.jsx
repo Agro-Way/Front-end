@@ -37,7 +37,7 @@ function Header() {
         <Link to="/sobre">Sobre</Link>
         <Link to="/blog">Blog</Link>
         <Link to="/produtos">Produtos</Link>
-        <Link to="/contato">Contato</Link>
+        <Link to="/consultar-pedido">Consultar Pedido</Link>
       </nav>
 
       <div className="icons">
