@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     --white-dark: #edeaef;
     --red: #dc3545;
     --bg: rgba(0, 0, 0, .7);
+    --bg2: rgba(0, 0, 0, .5);
     --box-shadow: 0 .5rem 1rem rgba(0,0,0,.5);
     --border: .1rem solid rgba(0, 0, 0, .3);
     --border2: .1rem solid var(--white);
