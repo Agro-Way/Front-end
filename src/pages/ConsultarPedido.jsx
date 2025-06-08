@@ -1,43 +1,61 @@
-// src/pages/ConsultarPedido.jsx
-import React from "react";
-import useDocumentTitle from "../hooks/useDocumentTitle";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import contactImg from "../assets/img/contact.png";
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import contactImg from '../assets/img/contact.png'
 import './../assets/css/consultar.css'
 
 function ConsultarPedido() {
-  useDocumentTitle("Consultar Pedido | Agroway");
+  useDocumentTitle('Consultar Pedido | Agroway')
+
+  // Cria um estado para controlar se a seção de detalhes deve aparecer ou não
+  const [mostrarDetalhes, setMostrarDetalhes] = useState(false)
+
+  // Função chamada ao enviar o formulário
+  const handleSubmit = e => {
+    e.preventDefault() // Impede que o formulário recarregue a página
+    setMostrarDetalhes(true) // Atualiza o estado para "true", fazendo com que a seção de detalhes apareça
+  }
 
   return (
     <>
-      {/*Header*/}
+      {/*header*/}
       <Header />
 
-      {/*sub-heading*/}
       <section className="sub-heading">
         <h1>Consulte Seu Pedido</h1>
       </section>
 
-      {/*consultar pedido*/}
       <section className="consultar-pedido">
-        <h1 className="heading">Verificar <span>Pedido</span></h1>
+        <h1 className="heading">
+          Verificar <span>Pedido</span>
+        </h1>
 
-        <form action="" className="search-form">
-          <input type="search" name="busca" id="search-box" placeholder="Digite o código do seu produto..." required/>
+        <form className="search-form" onSubmit={handleSubmit}>
+          <input type="search" name="busca" id="search-box" placeholder="Digite o código do seu produto..." required />
           <button type="submit" className="fas fa-search" title="Pesquisar" />
         </form>
       </section>
 
-      {/*detalhes do pedido*/}
-      <section className="detalhes-pedido">
-        <h1 className="heading">Detalhes Do <span>Pedido</span></h1>
-      </section>
-      
+      {/* Seção animada de detalhes do pedido */}
+      {mostrarDetalhes && (
+        <motion.section
+          className="detalhes-pedido"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <h1 className="heading">
+            Detalhes Do <span>Pedido</span>
+          </h1>
+        </motion.section>
+      )}
+
       {/*footer*/}
       <Footer />
     </>
-  );
+  )
 }
 
-export default ConsultarPedido;
+export default ConsultarPedido
