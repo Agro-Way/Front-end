@@ -28,6 +28,11 @@ function ConsultarPedido() {
           <button type="submit" className="fas fa-search" title="Pesquisar" />
         </form>
       </section>
+
+      {/*detalhes do pedido*/}
+      <section className="detalhes-pedido">
+        <h1 className="heading">Detalhes Do <span>Pedido</span></h1>
+      </section>
       
       {/*footer*/}
       <Footer />
