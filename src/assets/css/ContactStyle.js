@@ -70,14 +70,16 @@ const ContactStyle = styled.section`
       .form {
         flex: 1 1 50rem;
         padding: 10rem 5rem 5rem 5rem;
-        box-shadow: none;
 
         .inputBox {
           display: flex;
           justify-content: space-between;
-          flex-wrap: wrap;
 
-          input,
+          div {
+            width: 100%;
+          }
+
+          div input,
           textarea {
             padding: 1rem;
             margin: 1rem 0;
@@ -87,7 +89,7 @@ const ContactStyle = styled.section`
             background-color: var(--light-green);
             border-bottom-color: var(--primary);
             border-radius: 0.5rem 0.5rem 0 0;
-            width: 49%;
+            width: 98%;
 
             &:focus {
               border-top-color: var(--primary);
@@ -99,7 +101,7 @@ const ContactStyle = styled.section`
           textarea {
             resize: none;
             height: 15rem;
-            width: 100%;
+            width: 100% !important;
           }
         }
       }

@@ -62,7 +62,7 @@
   display: flex;
   justify-content: space-between;
 }
-.contact .row .form .inputBox input,
+.contact .row .form .inputBox div input,
 .contact .row .form .inputBox textarea{
   padding: 1rem;
   margin: 1rem 0;
@@ -72,7 +72,7 @@
   background-color: var(--light-green);
   border-bottom-color: var(--primary);
   border-radius: .5rem .5rem 0 0;
-  width: 49%;
+  width: 98%;
 }
 .contact .row .form .inputBox input:focus,
 .contact .row .form .inputBox textarea:focus{
@@ -83,6 +83,9 @@
 .contact .row .form .inputBox textarea{
   resize: none;
   height: 15rem;
+  width: 100% !important;
+}
+.contact .row .form .inputBox div{
   width: 100%;
 }
 
