@@ -7,7 +7,7 @@ import StatCard from '../components/common/StatCard'
 import AddButton from '../components/common/AddButton'
 import FullScreenModal from '../components/common/FullScreenModal'
 import UsersTable from '../components/users/UsersTable'
-import UsersDriveTable from '../components/users/UsersDriveTable'
+import UsersDriverTable from '../components/users/UsersDriverTable'
 import UserGrowthChart from '../components/users/UserGrowthChart'
 import UserActivityHeatmap from '../components/users/UserActivityHeatmap'
 import UserDemographicsChart from '../components/users/UserDemographicsChart'
@@ -70,7 +70,8 @@ const UsersPage = () => {
         </motion.div>
 
         <UsersTable />
-        <UsersDriveTable />
+        <UsersDriverTable />
+        
         <AddButton
           onClick={() => setShowModal(true)}
           label="Adicionar Cliente"
