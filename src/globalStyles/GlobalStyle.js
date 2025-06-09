@@ -687,7 +687,7 @@ section, footer{
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 500;
-  color: var(--red);
+  color: var(--red) !important;
   display: block;
 }
 

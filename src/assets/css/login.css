@@ -45,6 +45,12 @@
     font-size: 1.5rem;
     color: var(--white);
 }
+.login .login-form{
+    width: 60%;
+}
+.login .login-form div{
+    width: 100%;
+}
 .login .login-form .box::placeholder{
     color: var(--white);
 }
@@ -75,3 +81,16 @@
 .login .login-form p a:hover{
     text-decoration: underline;
 }
+
+@media(max-width: 768px){
+    .login .login-form{
+        width: 85%;
+    }
+}
+
+@media(max-width: 480px){
+    .login .login-form{
+        width: 100%;
+    }
+}
+
