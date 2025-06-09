@@ -1,5 +1,5 @@
 // src/pages/Sobre.jsx
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import Header from '../components/Header'
@@ -13,9 +13,34 @@ import contactImg from "../assets/img/contact.png";
 // import './../assets/css/contato.css'
 import AboutStyle from '@/assets/css/AboutStyle'
 import ContactStyle from '@/assets/css/ContactStyle'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { contatoValidation } from '../validations/contatoValidation'
+import { toast, ToastContainer } from 'react-toastify'
 
 function Sobre() {
   useDocumentTitle('Sobre | Agroway')
+
+  const [mensagemStatus, setMensagemStatus] = useState('')
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(contatoValidation)
+  })
+
+  const onSubmit = (data) => {
+    try {
+      console.log(data)
+      toast.success('Mensagem enviada com sucesso!')
+      reset() // Limpa o formulário
+    } catch (error) {
+      toast.error('Erro ao enviar. Tente novamente.')
+    }
+  }
 
   return (
     <>
@@ -183,40 +208,34 @@ function Sobre() {
             <img src={contactImg} alt="Nos Contacte" />
           </div>
 
-          <form action="" className="form">
+          <form action="" className="form"  onSubmit={handleSubmit(onSubmit)}>
             <div className="inputBox">
-              <input type="text" name="nome" placeholder="Seu nome" required />
-              <input
-                type="text"
-                name="email"
-                placeholder="exemplo@gmail.com"
-                required
-              />
+              <div>
+                <input type="text" name="nome" {...register("nome")} placeholder="Seu nome" />
+                <p className="error-msg">{errors.nome?.message}</p>
+              </div>
+              <div>
+                <input type="email" name="email" {...register("email")} placeholder="exemplo@gmail.com" />
+                <p className="error-msg">{errors.email?.message}</p>
+              </div>
             </div>
 
             <div className="inputBox">
-              <input
-                type="tel"
-                name="tel"
-                placeholder="Seu telefone"
-                required
-              />
-              <input
-                type="text"
-                name="assunto"
-                placeholder="Seu assunto"
-                required
-              />
+              <div>
+                <input type="tel" name="tel" {...register("telefone")} placeholder="Seu telefone" />
+                <p className="error-msg">{errors.telefone?.message}</p>
+              </div>
+              <div>
+                <input type="text" name="assunto" {...register("assunto")} placeholder="Seu assunto" />
+                <p className="error-msg">{errors.assunto?.message}</p>
+              </div>
             </div>
 
             <div className="inputBox">
-              <textarea
-                name="msg"
-                placeholder="Sua mensagem..."
-                cols="30"
-                rows="10"
-                required
-              />
+              <div>
+                <textarea {...register("mensagem")}  placeholder="Sua mensagem..." cols="30" rows="10" />
+                <p className="error-msg">{errors.mensagem?.message}</p>
+              </div>
             </div>
 
             <button type="submit" className="btn">
@@ -225,6 +244,9 @@ function Sobre() {
           </form>
         </div>
       </ContactStyle>
+
+      {/* Container de Notificações */}
+      <ToastContainer toastClassName="toast-tam" position="top-right" autoClose={4000} />
 
       {/*footer*/}
       <Footer />
