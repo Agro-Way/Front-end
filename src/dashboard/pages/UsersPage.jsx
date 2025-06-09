@@ -21,7 +21,7 @@ const userStats = {
 }
 
 const UsersPage = () => {
-  useDocumentTitle('Clientes | Dashboard')
+  useDocumentTitle('Clientes & Motoristas | Dashboard')
 
   const [showModal, setShowModal] = useState(false)
 
@@ -33,7 +33,7 @@ const UsersPage = () => {
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
-      <Header title="Clientes" />
+      <Header title="Clientes & Motoristas" />
 
       <main className="max-w-7xl mx-auto py-6 px-4 lg:px-8">
         {/* STATS */}
@@ -50,7 +50,7 @@ const UsersPage = () => {
             color="#6366F1"
           />
           <StatCard
-            name="Novos Clientes Hoje"
+            name="Motoristas Ativos"
             icon={UserPlus}
             value={userStats.newUsersToday}
             color="#10B981"
