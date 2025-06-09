@@ -21,8 +21,6 @@ import { toast, ToastContainer } from 'react-toastify'
 function Sobre() {
   useDocumentTitle('Sobre | Agroway')
 
-  const [mensagemStatus, setMensagemStatus] = useState('')
-
   const {
     register,
     handleSubmit,
