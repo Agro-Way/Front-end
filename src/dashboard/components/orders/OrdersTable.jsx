@@ -49,7 +49,7 @@ const OrdersTable = () => {
 					<input
 						type='text'
 						placeholder='Buscar pedidos...'
-						className='bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+						className='bg-gray-700 w-full text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
 						value={searchTerm}
 						onChange={handleSearch}
 					/>
@@ -116,7 +116,7 @@ const OrdersTable = () => {
 								</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{order.date}</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-									<button className='text-indigo-400 cursor-pointer hover:text-indigo-300 mr-2'>
+									<button type="button" className='text-indigo-400 cursor-pointer hover:text-indigo-300 mr-2'>
 										<Eye onClick={() => setShowModal(true)} size={18} />
 									</button>
 								</td>
