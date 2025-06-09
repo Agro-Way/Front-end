@@ -57,7 +57,7 @@ function AppRoutes() {
         {/* Rotas do dashboard com layout exclusivo */}
         <Route path="/dashboard" element={<DashboardLayout><OverviewPage /></DashboardLayout>} />
         <Route path="/dashboard/produtos" element={<DashboardLayout><ProductsPage /></DashboardLayout>} />
-        <Route path="/dashboard/clientes" element={<DashboardLayout><UsersPage /></DashboardLayout>} />
+        <Route path="/dashboard/clientes-motoristas" element={<DashboardLayout><UsersPage /></DashboardLayout>} />
         <Route path="/dashboard/vendas" element={<DashboardLayout><SalesPage /></DashboardLayout>} />
         <Route path="/dashboard/pedidos" element={<DashboardLayout><OrdersPage /></DashboardLayout>} />
         <Route path="/dashboard/analises" element={<DashboardLayout><AnalyticsPage /></DashboardLayout>} />
