@@ -41,6 +41,20 @@ const EditProductForm = () => {
 
 			{/* Select em outra linha */}
 			<div className="mb-6">
+				<label htmlFor="qtd" className="block text-sm font-medium text-gray-100 mb-1">
+					Quantidade
+				</label>
+				<input
+					type="number"
+					id="qtd"
+					placeholder="Digite a quantidade do produto"
+					required
+				    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+				/>
+			</div>
+
+			{/* Select em outra linha */}
+			<div className="mb-6">
 				<label htmlFor="categoria" className="block text-sm font-medium text-gray-100 mb-1">
 					Categoria
 				</label>
@@ -97,4 +111,5 @@ const EditProductForm = () => {
 	    </form>
   );
 };
+
 export default EditProductForm;
