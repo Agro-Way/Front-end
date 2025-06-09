@@ -118,7 +118,7 @@ const UsersTable = () => {
 								</td>
 
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-									<button className='text-indigo-400 cursor-pointer hover:text-indigo-300 mr-2'
+									<button type="button" className='text-indigo-400 cursor-pointer hover:text-indigo-300 mr-2'
 									onClick={() =>
 										openModal({
 											title: 'Editar Cliente',
@@ -130,7 +130,7 @@ const UsersTable = () => {
 									>
 										<Edit  size={18} />
 									</button>
-									<button className='text-red-400 cursor-pointer hover:text-red-300'
+									<button type="button" className='text-red-400 cursor-pointer hover:text-red-300'
 									onClick={() =>
 										openModal({
 											title: 'Eliminar Cliente',
