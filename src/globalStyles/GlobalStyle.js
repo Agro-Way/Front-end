@@ -683,6 +683,17 @@ section, footer{
 }
 /*footer end*/
 
+.error-msg{
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--red);
+  display: block;
+}
+
+.toast-tam {
+  font-size: 1.6rem;
+}
 
 /* media query */
 @media(max-width: 992px){
