@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+.title{
+    font-size: 4rem;
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url("../img/login2.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+.login::before{
+	content: "";
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+    background: linear-gradient(to bottom, rgba(6, 18, 30, .1), #06121e) !important;
+	background: var(--bg) !important;
+	z-index: -1;
+}
+.login .login-form h3{
+    color: var(--white);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: .7rem;
+}
+.login .login-form .box{
+    width: 100%;
+    border: var(--border2);
+    border-radius: .5rem;
+    padding: 1rem 1.2rem;
+    margin: .7rem 0;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+.login .login-form{
+    width: 60%;
+}
+.login .login-form div{
+    width: 100%;
+}
+.login .login-form .box::placeholder{
+    color: var(--white);
+}
+.login .login-form .remember{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .7rem 0;
+}
+.login .login-form .remember label{
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.login .login-form .btn{
+    margin: 1rem 0;
+    width: 100%;
+    border-radius: .5rem;
+}
+.login .login-form p{
+    color: var(--white);
+    padding-top: .7rem;
+    font-size: 1.4rem;
+}
+.login .login-form p a{
+    color: var(--white);
+}
+.login .login-form p a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 768px){
+    .login .login-form{
+        width: 85%;
+    }
+}
+
+@media(max-width: 480px){
+    .login .login-form{
+        width: 100%;
+    }
+}
+
