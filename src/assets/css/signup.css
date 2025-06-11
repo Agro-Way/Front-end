@@ -10,6 +10,7 @@
     min-height: 100vh;
     position: relative;
 	z-index: 0;
+	overflow: hidden;
 }
 .signup::before{
 	content: "";
@@ -25,6 +26,8 @@
 .signup .form-signup{
 	padding: 2rem;
 	border-radius: .5rem;
+	overflow: hidden;
+	width: 60%;
 }
 .signup .form-signup h3{
 	font-size: 2.5rem;
@@ -74,7 +77,14 @@
 }
 /*end contato*/
 
+@media(max-width: 768px){
+    .signup .form-signup{
+        width: 85%;
+    }
+}
+
 @media(max-width: 480px){
+	.signup .form-signup,
 	.signup .form-signup .inputBox input,
     .signup .form-signup .inputBox select{
 		width: 100%;
