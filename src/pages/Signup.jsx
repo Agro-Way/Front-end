@@ -73,16 +73,8 @@ function Signup() {
           </div>
 
           <div className="inputBox">
-            <select
-              id="funcao"
-              {...register("funcao")}
-              name="funcao"
-              className="box"
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Selecione sua função
-              </option>
+            <select id="funcao" {...register("funcao")} name="funcao" className="box" defaultValue="">
+              <option value="" disabled>Selecione sua função</option>
               <option value="1">Cliente</option>
               <option value="2">Motorista</option>
               <option value="3">Produtor</option>
