@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+.modal {
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(-30px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+}
