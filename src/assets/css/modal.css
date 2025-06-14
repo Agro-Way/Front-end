@@ -51,6 +51,14 @@
     overflow-y: auto;
 }
 
+.modal-body::-webkit-scrollbar-track{
+    background: var(--main);
+}
+.modal-body::-webkit-scrollbar-thumb{
+    background: var(--primary);
+    border-radius: 5rem;
+}
+
 .modal-footer {
     border-top: 1px solid #eee;
 }
