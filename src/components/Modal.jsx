@@ -1,19 +1,27 @@
+// src/components/Modal.jsx
 import React, { useEffect, useRef } from 'react';
 import '../assets/css/Modal.css';
+import { useModal } from '../context/ModalContext'; // Importa o contexto
 
 const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
   const modalRef = useRef(null);
   const overlayRef = useRef(null);
   const closeButtonRef = useRef(null);
 
+  const { isModalOpen, closeModal } = useModal(); // Usa o contexto para controle global
+
+  // Decide qual controle usar (prioriza props diretas para compatibilidade)
+  const visible = isOpen ?? isModalOpen;
+  const handleClose = onClose ?? closeModal;
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        onClose();
+        handleClose();
       }
     };
 
-    if (isOpen) {
+    if (visible) {
       document.addEventListener('keydown', handleKeyDown);
       // Focus no botão "Fechar"
       setTimeout(() => {
@@ -24,11 +32,11 @@ const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-    }, [isOpen, onClose]);
+  }, [visible, handleClose]);
 
   const handleOverlayClick = (e) => {
     if (e.target === overlayRef.current) {
-      onClose();
+      handleClose();
     }
   };
 
@@ -38,37 +46,39 @@ const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
       ref={overlayRef}
       aria-modal="true"
       aria-labelledby="modalTitle"
-      style={{ display: isOpen ? 'flex' : 'none' }}
+      style={{ display: visible ? 'flex' : 'none' }}
       onClick={handleOverlayClick}
       onKeyDown={(e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      handleOverlayClick(e);
-    }
-  }}
-  tabIndex={-1}
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleOverlayClick(e);
+        }
+      }}
+      tabIndex={-1}
     >
       <div
-        className={`modal ${isOpen ? 'show' : ''}`}
+        className={`modal ${visible ? 'show' : ''}`}
         ref={modalRef}
         id="modalBox"
       >
         <div className="modal-header">
           <span id="modalTitle">{title}</span>
-          <button type='button'
+          <button
+            type="button"
             className="close-btn"
             aria-label="Fechar modal"
-            onClick={onClose}
+            onClick={handleClose}
           >
-            &times;
+            <i className="fas fa-times" />
           </button>
         </div>
         <div className="modal-body">
           {children}
         </div>
         <div className="modal-footer">
-          <button type='button'
+          <button
+            type="button"
             className="btn"
-            onClick={onClose}
+            onClick={handleClose}
             ref={closeButtonRef}
           >
             Fechar
