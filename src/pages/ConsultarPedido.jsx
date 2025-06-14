@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import contactImg from '../assets/img/contact.png'
 import './../assets/css/consultar.css'
 
 function ConsultarPedido() {
