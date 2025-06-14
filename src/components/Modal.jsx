@@ -23,6 +23,7 @@ const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
 
     if (visible) {
       document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden'; //Bloqueia o scroll da página
       // Focus no botão "Fechar"
       setTimeout(() => {
         closeButtonRef.current?.focus();
@@ -31,6 +32,7 @@ const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = ''; //Restaura o scroll
     };
   }, [visible, handleClose]);
 
