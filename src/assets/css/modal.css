@@ -14,10 +14,10 @@
 }
 
 .modal {
-    background: #fff;
+    background: var(--white);
     width: 100vw;
     height: 100vh;
-    transform: translateY(-30px) scale(0.98);
+    transform: translateY(-3rem) scale(0.98);
     opacity: 0;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     pointer-events: none;
@@ -41,12 +41,12 @@
 }
 
 .modal-header {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
 .modal-body {
-    padding: 1rem;
+    padding: 2rem;
     flex: 1;
     overflow-y: auto;
 }
@@ -58,20 +58,10 @@
 .close-btn {
     background: none;
     border: none;
-    font-size: 1.2rem;
     cursor: pointer;
+    padding: 1rem;
 }
-
-.action-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.action-btn:hover {
-    background-color: #0056b3;
+.close-btn .fa-times {
+    font-size: 2.5rem;
+    font-weight: bold;
 }
