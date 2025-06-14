@@ -114,6 +114,10 @@ section, footer{
     color: var(--white);
 }
 
+.p-size{
+    font-size: 1.6rem;
+}
+
 .d-flex{
     display: flex;
     flex-wrap: wrap;

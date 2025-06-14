@@ -117,6 +117,10 @@ section, footer{
     margin-top: 8rem;
 }
 
+.p-size{
+    font-size: 1.6rem;
+}
+
 /* header */
 .header{
     position: fixed;
