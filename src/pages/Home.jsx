@@ -4,14 +4,11 @@ import { Link } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Modal from "../components/Modal";
 import homeVideo from "../assets/video/Agroway-home.mp4";
 import sobreImg from "../assets/img/sobre.jpg";
 
 function Home() {
   useDocumentTitle("Agroway");
-
-  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -256,19 +253,7 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <section>
-        <button type="button" className="btn" id="openModalBtn" onClick={() => setModalOpen(true)}>
-          Abrir Modal
-        </button>
-
-        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-          <p>Este é o conteúdo principal do modal. Aqui você pode colocar qualquer informação relevante.</p>
-          <p>Role para testar scroll, se houver muito conteúdo.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel sapien a sapien convallis dignissim.</p>
-        </Modal>
-      </section>
-
+      
       {/*footer*/}
       <Footer />
     </>
