@@ -1,16 +1,56 @@
 // src/components/ModalWrapper.jsx
-import React from 'react';
-import Modal from './Modal';
-import { useModal } from '../context/ModalContext';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Modal from "./Modal";
+import { useModal } from "../context/ModalContext";
+import "./../assets/css/consultar.css";
 
 const ModalWrapper = () => {
   const { isModalOpen, closeModal } = useModal();
 
+  // Cria um estado para controlar se a seção de detalhes deve aparecer ou não
+  const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
+
+  // Função chamada ao enviar o formulário e alterna entre mostrar e ocultar  ao enviar o formulário
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Impede que o formulário recarregue a página
+    //setMostrarDetalhes(true) // Atualiza o estado para "true", fazendo com que a seção de detalhes apareça
+    setMostrarDetalhes((prev) => !prev); // Inverte o valor do estado (true <-> false)
+  };
+
   return (
     <Modal isOpen={isModalOpen} onClose={closeModal} title="Consultar Pedido">
-      <p className="p-size">Este é o conteúdo principal do modal. Aqui você pode colocar qualquer informação relevante.</p>
-      <p className="p-size">Role para testar scroll, se houver muito conteúdo.</p>
-      <p className="p-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel sapien a sapien convallis dignissim.</p>
+      <section className="consultar-pedido">
+        <h1 className="heading">
+          Verificar <span>Pedido</span>
+        </h1>
+
+        <form className="search-form" onSubmit={handleSubmit}>
+          <input type="search" name="busca" id="search-box" placeholder="Digite o código do seu pedido..." required />
+          <button type="submit" className="fas fa-search" title="Pesquisar" />
+        </form>
+      </section>
+
+      {/* Seção animada de detalhes do pedido */}
+      <AnimatePresence>
+        {mostrarDetalhes && (
+          <motion.section
+            className="detalhes-pedido"
+            key="detalhes"
+            initial={{ opacity: 0, y: 30 }} // Quando aparece
+            animate={{ opacity: 1, y: 0 }} // Estado visível
+            exit={{ opacity: 0, y: 30 }} // Quando desaparece
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h1 className="heading">Detalhes Do <span>Pedido</span></h1>
+
+            <p className="p-size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas iusto ullam soluta ab accusamus esse, natus explicabo mollitia quia quaerat corrupti cupiditate nostrum iure, ipsam est dignissimos ut aspernatur.</p>
+            <p className="p-size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas iusto ullam soluta ab accusamus esse, natus explicabo mollitia quia quaerat corrupti cupiditate nostrum iure, ipsam est dignissimos ut aspernatur.</p>
+            <p className="p-size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas iusto ullam soluta ab accusamus esse, natus explicabo mollitia quia quaerat corrupti cupiditate nostrum iure, ipsam est dignissimos ut aspernatur.</p>
+            <p className="p-size">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas iusto ullam soluta ab accusamus esse, natus explicabo mollitia quia quaerat corrupti cupiditate nostrum iure, ipsam est dignissimos ut aspernatur.</p>
+          </motion.section>
+        )}
+      </AnimatePresence>
     </Modal>
   );
 };
