@@ -7,6 +7,10 @@ import GlobalStyle from './globalStyles/GlobalStyle';
 // Layout do dashboard
 import DashboardLayout from './layouts/DashboardLayout';
 
+// Modal Context e wrapper
+import { ModalProvider } from './context/ModalContext';
+import ModalWrapper from './components/ModalWrapper';
+
 // Páginas do site
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
@@ -72,15 +76,19 @@ function AppRoutes() {
           : <NotFound /> } 
         />
       </Routes>
+      <ModalWrapper />
     </>
   );
 }
 
 function App() {
   return (
-    <Router>
-      <AppRoutes />
-    </Router>
+    <ModalProvider>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </ModalProvider>
+    
   );
 }
 
