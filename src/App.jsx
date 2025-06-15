@@ -20,6 +20,7 @@ import ConsultarPedido from './pages/ConsultarPedido';
 import Post from './pages/Post';
 import Carrinho from './pages/Carrinho';
 import Checkout from './pages/Checkout';
+import PedidoConfirmado from './pages/PedidoConfirmado';
 import DetalhesProdutos from './pages/DetalhesProdutos';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -56,6 +57,7 @@ function AppRoutes() {
         <Route path="/consultar-pedido" element={<ConsultarPedido />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/pedido-confirmado" element={<PedidoConfirmado />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastrar" element={<Signup />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
