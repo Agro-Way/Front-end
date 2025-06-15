@@ -24,6 +24,7 @@ import PedidoConfirmado from './pages/PedidoConfirmado';
 import DetalhesProdutos from './pages/DetalhesProdutos';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import MotoristaInfo from './pages/MotoristaInfo';
 import RecuperarSenha from './pages/RecuperarSenha';
 import NotFound from './pages/NotFound';
 
@@ -60,6 +61,7 @@ function AppRoutes() {
         <Route path="/pedido-confirmado" element={<PedidoConfirmado />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastrar" element={<Signup />} />
+        <Route path="/motorista-info" element={<MotoristaInfo />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
 
         {/* Rotas do dashboard com layout exclusivo */}
