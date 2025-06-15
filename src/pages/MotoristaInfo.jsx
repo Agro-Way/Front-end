@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./../assets/css/signup.css";
 //import SignStyle from '@/assets/css/SignStyle';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { cadastroValidation } from "../validations/cadastroValidation";
+import { cadastroVeiculoValidation } from "../validations/cadastroVeiculoValidation";
 import { toast, ToastContainer } from "react-toastify";
 
 function MotoristaInfo() {
@@ -15,11 +15,10 @@ function MotoristaInfo() {
   const {
     register,
     handleSubmit,
-    control,
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(cadastroValidation),
+    resolver: yupResolver(cadastroVeiculoValidation),
   });
 
   const onSubmit = (data) => {
@@ -35,7 +34,7 @@ function MotoristaInfo() {
   return (
     <>
       {/*Signup*/}
-      <section className="signup" style={{ overflowY: "hidden" }}>
+      <section className="signup">
         <form
           action=""
           method="POST"
@@ -47,73 +46,43 @@ function MotoristaInfo() {
           <div className="inputBox">
             <input
               type="text"
-              {...register("nome")}
-              name="nome"
-              placeholder="Seu nome"
+              {...register("marcaCarro")}
+              name="marcaCarro"
+              placeholder="Marca do seu carro"
               className="box"
             />
-            <p className="error-msg">{errors.nome?.message}</p>
+            <p className="error-msg">{errors.marcaCarro?.message}</p>
           </div>
           <div className="inputBox">
             <input
-              type="email"
-              {...register("email")}
-              name="email"
-              placeholder="exemplo@gmail.com"
+              type="modeloCarro"
+              {...register("modeloCarro")}
+              name="modeloCarro"
+              placeholder="O modelo do seu carro"
               className="box"
             />
-            <p className="error-msg">{errors.email?.message}</p>
+            <p className="error-msg">{errors.modeloCarro?.message}</p>
           </div>
 
           <div className="inputBox">
             <input
-              type="tel"
-              name="tel"
-              {...register("telefone")}
-              placeholder="Seu telefone"
+              type="text"
+              name="placaCarro"
+              {...register("placaCarro")}
+              placeholder="A placa(matruícula) do carro | Exemplo: AA-12-34 ou LD-12-34-AA"
               className="box"
             />
-            <p className="error-msg">{errors.telefone?.message}</p>
-          </div>
-
-          <div className="inputBox">
-            <select
-              id="funcao"
-              {...register("funcao")}
-              name="funcao"
-              className="box"
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Selecione sua função
-              </option>
-              <option value="1">Cliente</option>
-              <option value="2">Motorista</option>
-              <option value="3">Produtor</option>
-            </select>
-            <p className="error-msg">{errors.funcao?.message}</p>
+            <p className="error-msg">{errors.placaCarro?.message}</p>
           </div>
 
           <div className="inputBox">
             <input
-              type="password"
-              {...register("senha")}
-              name="senha"
-              placeholder="Sua palavra-pass"
+              type="file"
+              {...register("imagemCarro")}
+              name="imagemCarro"
               className="box"
             />
-            <p className="error-msg">{errors.senha?.message}</p>
-          </div>
-
-          <div className="inputBox">
-            <input
-              type="password"
-              {...register("confirmarSenha")}
-              name="confirmarSenha"
-              placeholder="Confirme sua palavra-pass"
-              className="box"
-            />
-            <p className="error-msg">{errors.confirmarSenha?.message}</p>
+            <p className="error-msg">{errors.imagemCarro?.message}</p>
           </div>
 
           <button type="submit" className="btn">
