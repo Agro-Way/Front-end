@@ -23,7 +23,13 @@ function MotoristaInfo() {
 
   const onSubmit = (data) => {
     try {
-      console.log(data);
+      const imagem = data.imagemCarro[0]
+      console.log({
+        marca: data.marcaCarro,
+        modelo: data.modeloCarro,
+        placa: data.placaCarro,
+        imagem: imagem.name,
+      });
       toast.success("Cadastro feito com sucesso!");
       reset(); // Limpa o formulário
     } catch (error) {
@@ -78,6 +84,7 @@ function MotoristaInfo() {
           <div className="inputBox">
             <input
               type="file"
+              accept="image/*"
               {...register("imagemCarro")}
               name="imagemCarro"
               className="box"

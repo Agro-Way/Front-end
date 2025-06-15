@@ -14,16 +14,24 @@ export const cadastroVeiculoValidation = yup.object().shape({
     .matches(placaAtualAngolaRegex, "Placa inválida")
     .required("A placa do carro é obrigatória"),
 
-  imagemCarro: yup.mixed()
-    .required("Imagem obrigatória")
-    .test(
-      "fileType",
-      "A imagem deve ser JPG ou PNG",
-      (value) => value && ["image/jpeg", "image/png"].includes(value.type)
-    )
-    .test(
-      "fileSize",
-      "Imagem muito grande (máx. 5MB)",
-      (value) => value && value.size <= 5 * 1024 * 1024
-    ),
+  imagemCarro: yup
+  .mixed()
+  .required("Imagem obrigatória")
+  .test(
+    "fileType",
+    "A imagem deve ser JPG ou PNG",
+    (value) =>
+      value &&
+      value.length > 0 &&
+      ["image/jpeg", "image/png"].includes(value[0]?.type)
+  )
+  .test(
+    "fileSize",
+    "Imagem muito grande (máx. 5MB)",
+    (value) =>
+      value &&
+      value.length > 0 &&
+      value[0]?.size <= 5 * 1024 * 1024
+  ),
+
 });
