@@ -2,10 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
-import sobreFocus3 from "../assets/img/focus-3.jpg";
 import "./../assets/css/signup.css";
 //import SignStyle from '@/assets/css/SignStyle';
-import InputMask from "react-input-mask";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cadastroValidation } from "../validations/cadastroValidation";
@@ -68,13 +66,27 @@ function Signup() {
           </div>
 
           <div className="inputBox">
-            <input type="tel" name="tel" {...register("telefone")} placeholder="Seu telefone" className="box" />
+            <input
+              type="tel"
+              name="tel"
+              {...register("telefone")}
+              placeholder="Seu telefone"
+              className="box"
+            />
             <p className="error-msg">{errors.telefone?.message}</p>
           </div>
 
           <div className="inputBox">
-            <select id="funcao" {...register("funcao")} name="funcao" className="box" defaultValue="">
-              <option value="" disabled>Selecione sua função</option>
+            <select
+              id="funcao"
+              {...register("funcao")}
+              name="funcao"
+              className="box"
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Selecione sua função
+              </option>
               <option value="1">Cliente</option>
               <option value="2">Motorista</option>
               <option value="3">Produtor</option>
