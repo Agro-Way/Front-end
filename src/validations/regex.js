@@ -16,3 +16,8 @@ export const placaAtualAngolaRegex = /^[A-Z]{2}-\d{2}-\d{2}$/;
  * Formato antigo: LD-12-34-AA. LD: letras (Luanda), 12: dígitos, 34: dígitos, AA: letras (sufixo)
 */
 export const placaAngolaRegex = /^([A-Z]{2}-\d{2}-\d{2}|[A-Z]{2}-\d{2}-\d{2}-[A-Z]{2})$/;
+
+/**
+ * Aceita apenas números (sem espaços, letras ou símbolos)
+ */
+export const apenasNumerosRegex = /^\d+$/;
