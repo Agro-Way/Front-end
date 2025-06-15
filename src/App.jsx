@@ -7,6 +7,10 @@ import GlobalStyle from './globalStyles/GlobalStyle';
 // Layout do dashboard
 import DashboardLayout from './layouts/DashboardLayout';
 
+// Modal Context e wrapper
+import { ModalProvider } from './context/ModalContext';
+import ModalWrapper from './components/ModalWrapper';
+
 // Páginas do site
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
@@ -16,8 +20,11 @@ import ConsultarPedido from './pages/ConsultarPedido';
 import Post from './pages/Post';
 import Carrinho from './pages/Carrinho';
 import Checkout from './pages/Checkout';
+import PedidoConfirmado from './pages/PedidoConfirmado';
+import DetalhesProdutos from './pages/DetalhesProdutos';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import MotoristaInfo from './pages/MotoristaInfo';
 import RecuperarSenha from './pages/RecuperarSenha';
 import NotFound from './pages/NotFound';
 
@@ -47,11 +54,14 @@ function AppRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/post/" element={<Post />} />
         <Route path="/produtos" element={<Produtos />} />
+        <Route path="/produtos/detalhes/" element={<DetalhesProdutos />} />
         <Route path="/consultar-pedido" element={<ConsultarPedido />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/pedido-confirmado" element={<PedidoConfirmado />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastrar" element={<Signup />} />
+        <Route path="/motorista-info" element={<MotoristaInfo />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
 
         {/* Rotas do dashboard com layout exclusivo */}
@@ -70,15 +80,19 @@ function AppRoutes() {
           : <NotFound /> } 
         />
       </Routes>
+      <ModalWrapper />
     </>
   );
 }
 
 function App() {
   return (
-    <Router>
-      <AppRoutes />
-    </Router>
+    <ModalProvider>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </ModalProvider>
+    
   );
 }
 

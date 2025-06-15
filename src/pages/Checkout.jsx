@@ -19,7 +19,7 @@ function Checkout() {
 
       {/*Checkout*/}
       <section className="checkout pt-8">
-        <form action="" className="form-checkout" encType="multipart/form-data">
+        <form action="/pedido-confirmado" method="POST" className="form-checkout" encType="multipart/form-data">
           <h2 className="title">Resumo do Pedido</h2>
           <div className="form-group">
             <div class="product">

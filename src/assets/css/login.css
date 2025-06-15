@@ -5,14 +5,14 @@
     color: var(--white);
     text-align: center;
     padding: 1rem 0;
-    line-height: 2;
+    line-height: 1.5;
 }
 
 .login{
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: url("../img/login2.jpg") no-repeat;
+    background: url("../img/login3.jpg") no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 100vh;

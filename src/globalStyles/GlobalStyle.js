@@ -88,6 +88,7 @@ section, footer{
 	cursor: pointer;
 	font-size: 1.7rem;
 	text-transform: capitalize;
+    text-align: center;
     font-weight: 700;
 }
 .btn:hover{
@@ -112,6 +113,10 @@ section, footer{
 .sub-heading h1{
     font-size: 4rem;
     color: var(--white);
+}
+
+.p-size{
+    font-size: 1.6rem;
 }
 
 .d-flex{

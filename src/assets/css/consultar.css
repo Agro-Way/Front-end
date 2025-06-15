@@ -1,2 +1,80 @@
 @charset "UTF-8";
 
+.detalhes-pedido .h1,
+.detalhes-pedido .h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.detalhes-pedido p {
+    font-size: 1.6rem;
+
+}
+
+.detalhes-pedido .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.detalhes-pedido .section {
+    margin: 2rem 0;
+}
+
+.detalhes-pedido .column {
+    flex: 1;
+    min-width: 30rem;
+}
+.detalhes-pedido .image {
+    max-width: 200px;
+    margin-bottom: 1rem;
+}
+.detalhes-pedido .image img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.detalhes-pedido iframe {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+.detalhes-pedido .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.detalhes-pedido .btn {
+    border-radius: .5rem;
+}
+
+.green {
+    background-color: #28a745 !important;
+}
+
+.blue {
+    background-color: #007bff !important;
+}
+
+.gray {
+    background-color: #6c757d !important;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+ul {
+    padding-left: 2rem;
+    font-size: 1.6rem;
+}
+
+@media(max-width: 480px){
+    .detalhes-pedido .btn {
+        width: 100%;
+    }
+}

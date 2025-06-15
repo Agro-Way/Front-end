@@ -81,6 +81,7 @@ section, footer{
 	cursor: pointer;
 	font-size: 1.7rem;
 	text-transform: capitalize;
+    text-align: center;
     font-weight: 700;
 }
 .btn:hover{
@@ -115,6 +116,10 @@ section, footer{
 }
 .pt-8{
     margin-top: 8rem;
+}
+
+.p-size{
+    font-size: 1.6rem;
 }
 
 /* header */

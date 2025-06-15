@@ -40,7 +40,7 @@ function Produtos() {
               <div className="price">15.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
 
@@ -53,7 +53,7 @@ function Produtos() {
               <div className="price">18.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
 
@@ -66,7 +66,7 @@ function Produtos() {
               <div className="price">20.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
 
@@ -79,7 +79,7 @@ function Produtos() {
               <div className="price">30.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
 
@@ -92,7 +92,7 @@ function Produtos() {
               <div className="price">40.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
 
@@ -105,7 +105,7 @@ function Produtos() {
               <div className="price">100.000Kz</div>
               <div />
               <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="#" className="fas fa-eye" />
+              <Link to="/produtos/detalhes/" className="fas fa-eye" />
             </div>
           </div>
         </div>
