@@ -88,6 +88,7 @@ section, footer{
 	cursor: pointer;
 	font-size: 1.7rem;
 	text-transform: capitalize;
+    text-align: center;
     font-weight: 700;
 }
 .btn:hover{
