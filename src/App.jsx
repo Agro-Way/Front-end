@@ -26,9 +26,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MotoristaInfo from './pages/MotoristaInfo';
 import RecuperarSenha from './pages/RecuperarSenha';
+import ConfirmarCodigo from './pages/ConfirmarCodigo';
+import RedefinirSenha from './pages/RedefinirSenha';
 import NotFound from './pages/NotFound';
 
-// Páginas do dashboard
+// Páginas do dashboard do produtor
 import OverviewPage from './dashboard/pages/OverviewPage';
 import ProductsPage from './dashboard/pages/ProductsPage';
 import UsersPage from './dashboard/pages/UsersPage';
@@ -63,8 +65,10 @@ function AppRoutes() {
         <Route path="/cadastrar" element={<Signup />} />
         <Route path="/motorista-info" element={<MotoristaInfo />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
+        <Route path="/recuperar-senha/codigo-confirmacao/" element={<ConfirmarCodigo />} />
+        <Route path="/recuperar-senha/redefinir-senha/" element={<RedefinirSenha />} />
 
-        {/* Rotas do dashboard com layout exclusivo */}
+        {/* Rotas do dashboard do produtor com layout exclusivo */}
         <Route path="/dashboard" element={<DashboardLayout><OverviewPage /></DashboardLayout>} />
         <Route path="/dashboard/produtos" element={<DashboardLayout><ProductsPage /></DashboardLayout>} />
         <Route path="/dashboard/clientes-motoristas" element={<DashboardLayout><UsersPage /></DashboardLayout>} />
