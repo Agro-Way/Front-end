@@ -2,17 +2,14 @@ import * as yup from "yup";
 import { placaAtualAngolaRegex, placaAngolaRegex } from "./regex";
 
 export const cadastroVeiculoValidation = yup.object().shape({
-   marcaCarro: yup.string()
-    .min(2, "Marca muito curta")
-    .required("A marca do carro é obrigatória"),
+   marcaCarro: yup.string().required("A marca do carro é obrigatória")
+    .min(2, "Marca muito curta"),
 
-  modeloCarro: yup.string()
-    .min(1, "Modelo muito curto")
-    .required("O modelo do carro é obrigatório"),
+  modeloCarro: yup.string().required("O modelo do carro é obrigatório")
+    .min(1, "Modelo muito curto"),
 
-  placaCarro: yup.string()
-    .matches(placaAtualAngolaRegex, "Placa inválida")
-    .required("A placa do carro é obrigatória"),
+  placaCarro: yup.string().required("A placa do carro é obrigatória")
+    .matches(placaAtualAngolaRegex, "Placa inválida"),
 
   imagemCarro: yup
   .mixed()
