@@ -182,7 +182,7 @@ const ProductsTable = () => {
                       openModal({
                         title: 'Editar Produto',
                         content: (
-                          <EditProductForm />
+                          <EditProductForm product={product} />
                         ),
                       })
                     }
@@ -196,7 +196,7 @@ const ProductsTable = () => {
                       openModal({
                         title: 'Eliminar Produto',
                         content: (
-                          <DeleteProductForm />
+                          <DeleteProductForm product={product} />
                         ),
                       })
                     }
