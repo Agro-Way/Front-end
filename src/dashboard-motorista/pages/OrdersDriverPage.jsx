@@ -14,8 +14,8 @@ const orderStats = {
 	totalRevenue: "98.765 Kz",
 };
 
-const OrdersPage = () => {
-    useDocumentTitle("Pedidos | Dashboard");
+const OrdersDriverPage = () => {
+    useDocumentTitle("Pedidos | Dashboard Motorista");
 	return (
 		<div className='flex-1 relative z-10 overflow-auto'>
 			<Header title={"Pedidos"} />
@@ -48,4 +48,4 @@ const OrdersPage = () => {
 		</div>
 	);
 };
-export default OrdersPage;
+export default OrdersDriverPage;

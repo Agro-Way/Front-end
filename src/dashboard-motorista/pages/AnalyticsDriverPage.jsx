@@ -7,8 +7,8 @@ import ProductPerformance from "../components/analytics/ProductPerformance";
 import UserRetention from "../components/analytics/UserRetention";
 import CustomerSegmentation from "../components/analytics/CustomerSegmentation";
 
-const AnalyticsPage = () => {
-    useDocumentTitle("Análises | Dashboard");
+const AnalyticsDriverPage = () => {
+    useDocumentTitle("Análises | Dashboard Motorista");
 
 	return (
 		<div className='flex-1 overflow-auto relative z-10 bg-gray-900'>
@@ -28,4 +28,4 @@ const AnalyticsPage = () => {
 		</div>
 	);
 };
-export default AnalyticsPage;
+export default AnalyticsDriverPage;

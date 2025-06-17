@@ -7,8 +7,8 @@ import CategoryDistributionChart from "../components/overview/CategoryDistributi
 import SalesOverviewChart from "../components/overview/SalesOverviewChart";
 import SalesChannelChart from "../components/overview/SalesChannelChart";
 
-const OverviewPage = () => {
-	useDocumentTitle("Dashboard");
+const OverviewDriverPage = () => {
+	useDocumentTitle("Dashboard Motorista");
 
 	return (
 		<div className='flex-1 overflow-auto relative z-10'>
@@ -37,4 +37,4 @@ const OverviewPage = () => {
 		</div>
 	);
 };
-export default OverviewPage;
+export default OverviewDriverPage;

@@ -4,8 +4,8 @@ import DangerZone from "../components/settings/DangerZone";
 import Profile from "../components/settings/Profile";
 import Security from "../components/settings/Security";
 
-const SettingsPage = () => {
-    useDocumentTitle("Definições | Dashboard");
+const SettingsDriverPage = () => {
+    useDocumentTitle("Definições | Dashboard Motorista");
 
 	return (
 		<div className='flex-1 overflow-auto relative z-10 bg-gray-900'>
@@ -18,4 +18,4 @@ const SettingsPage = () => {
 		</div>
 	);
 };
-export default SettingsPage;
+export default SettingsDriverPage;
