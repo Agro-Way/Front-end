@@ -6,6 +6,7 @@ import GlobalStyle from './globalStyles/GlobalStyle';
 
 // Layout do dashboard
 import DashboardLayout from './layouts/DashboardLayout';
+import DashboardDriverLayout from './layouts/DashboardDriverLayout';
 
 // Modal Context e wrapper
 import { ModalProvider } from './context/ModalContext';
@@ -40,14 +41,22 @@ import AnalyticsPage from './dashboard/pages/AnalyticsPage';
 import SettingsPage from './dashboard/pages/SettingsPage';
 import DashboardNotFound from './dashboard/pages/DashboardNotFound';
 
+// Páginas do dashboard do motorista
+import OverviewDriverPage from './dashboard-motorista/pages/OverviewDriverPage';
+import OrdersDriverPage from './dashboard-motorista/pages/OrdersDriverPage';
+import AnalyticsDriverPage from './dashboard-motorista/pages/AnalyticsDriverPage';
+import SettingsDriverPage from './dashboard-motorista/pages/SettingsDriverPage';
+import DashboardDriverNotFound from './dashboard-motorista/pages/DashboardDriverNotFound';
+
 function AppRoutes() {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith('/dashboard');
+  const isDashboardProducer = location.pathname.startsWith('/dashboard');
+  const isDashboardDriver = location.pathname.startsWith('/dashboard-motorista');
 
   return (
     <>
       {/* Aplica estilos globais somente fora do dashboard */}
-      {!isDashboard && <GlobalStyle />}
+      {!isDashboardProducer && !isDashboardDriver && <GlobalStyle />}
 
       <Routes>
         {/* Rotas do site */}
@@ -77,11 +86,20 @@ function AppRoutes() {
         <Route path="/dashboard/analises" element={<DashboardLayout><AnalyticsPage /></DashboardLayout>} />
         <Route path="/dashboard/definicoes" element={<DashboardLayout><SettingsPage /></DashboardLayout>} />
 
+        {/* Rotas do dashboard do produtor com layout exclusivo */}
+        <Route path="/dashboard-motorista/" element={<DashboardDriverLayout><OverviewDriverPage /></DashboardDriverLayout>} />
+        <Route path="/dashboard-motorista/pedidos" element={<DashboardDriverLayout><OrdersDriverPage /></DashboardDriverLayout>} />
+        <Route path="/dashboard-motorista/analises" element={<DashboardDriverLayout><AnalyticsDriverPage /></DashboardDriverLayout>} />
+        <Route path="/dashboard-motorista/definicoes" element={<DashboardDriverLayout><SettingsDriverPage /></DashboardDriverLayout>} />
+
         {/* 404 */}
-        <Route path="*" element={
-          isDashboard
-          ? <DashboardLayout><DashboardNotFound /></DashboardLayout> // Dashboard NotFound com layout e estilos do dashboard
-          : <NotFound /> } 
+        <Route
+          path="*"
+          element={
+            isDashboardDriver ? (<DashboardDriverLayout><DashboardDriverNotFound /></DashboardDriverLayout>) 
+            : isDashboardProducer ? (<DashboardLayout><DashboardNotFound /></DashboardLayout>) 
+            : (<NotFound />)
+          }
         />
       </Routes>
       <ModalWrapper />
