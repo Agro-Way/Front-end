@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose, children }) => {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <button
+            <button type="button"
               onClick={onClose}
               className="absolute cursor-pointer top-3 right-3 text-gray-400 hover:text-red-500 text-xl"
             >
