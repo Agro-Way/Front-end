@@ -8,15 +8,12 @@ const SIDEBAR_ITEMS = [
 		name: "Visão Global",
 		icon: BarChart2,
 		color: "#6366f1",
-		href: "/dashboard/",
+		href: "/dashboard-motorista/",
 	},
-	{ name: "Produtos", icon: ShoppingBag, color: "#8B5CF6", href: "/dashboard/produtos" },
-	{ name: "Clientes & Motoristas", icon: Users, color: "#EC4899", href: "/dashboard/clientes-motoristas" },
-	{ name: "Vendas", icon: DollarSign, color: "#10B981", href: "/dashboard/vendas" },
-	{ name: "Pedidos", icon: ShoppingCart, color: "#F59E0B", href: "/dashboard/pedidos" },
-	{ name: "Análises", icon: TrendingUp, color: "#3B82F6", href: "/dashboard/analises" },
-	{ name: "Definições", icon: Settings, color: "#6EE7B7", href: "/dashboard/definicoes" },
-	{ name: "Sair", icon: LogOut, color: "#EF4444", href: "/dashboard/sair"},
+	{ name: "Pedidos", icon: ShoppingCart, color: "#F59E0B", href: "/dashboard-motorista/pedidos" },
+	{ name: "Análises", icon: TrendingUp, color: "#3B82F6", href: "/dashboard-motorista/analises" },
+	{ name: "Definições", icon: Settings, color: "#6EE7B7", href: "/dashboard-motorista/definicoes" },
+	{ name: "Sair", icon: LogOut, color: "#EF4444", href: "/dashboard-motorista/sair"},
 ];
 
 const Sidebar = () => {
