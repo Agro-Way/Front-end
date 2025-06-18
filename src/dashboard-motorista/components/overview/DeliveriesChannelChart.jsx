@@ -4,14 +4,14 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B"];
 
 const SALES_CHANNEL_DATA = [
-	{ name: "Frutas", Valor: 45600 },
-	{ name: "Frutos", Valor: 38200 },
-	{ name: "Vegetais", Valor: 29800 },
-	{ name: "Legumes", Valor: 18700 },
-    { name: "Outros", Valor: 8700 },
+	{ name: "Luanda", Total: 45600 },
+	{ name: "Benguela", Total: 38200 },
+	{ name: "Moxico", Total: 29800 },
+	{ name: "Huambo", Total: 18700 },
+    { name: "Outros", Total: 8700 },
 ];
 
-const SalesChannelChart = () => {
+const DeliveriesChannelChart = () => {
 	return (
 		<motion.div
 			className='bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 lg:col-span-2 border border-gray-700'
@@ -19,7 +19,7 @@ const SalesChannelChart = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.4 }}
 		>
-			<h2 className='text-lg font-medium mb-4 text-gray-100'>Maiores Vendas</h2>
+			<h2 className='text-lg font-medium mb-4 text-gray-100'>Maiores Entregas</h2>
 
             <div className="h-80">
             <ResponsiveContainer>
@@ -35,7 +35,7 @@ const SalesChannelChart = () => {
 							itemStyle={{ color: "#E5E7EB" }}
 						/>
 						<Legend />
-						<Bar dataKey={"Valor"} fill='#8884d8'>
+						<Bar dataKey={"Total"} fill='#8884d8'>
 							{SALES_CHANNEL_DATA.map((entry, index) => (
 								<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
 							))}
@@ -46,4 +46,4 @@ const SalesChannelChart = () => {
 		</motion.div>
 	);
 };
-export default SalesChannelChart;
+export default DeliveriesChannelChart;

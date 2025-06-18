@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 const categoryData = [
-	{ name: "Frutas", value: 4500 },
-	{ name: "Frutos", value: 3200 },
-	{ name: "Vegetais", value: 2800 },
-	{ name: "Legumes", value: 2100 },
-	{ name: "Outros", value: 1900 },
+	{ name: "Luanda", value: 4500 },
+	{ name: "Benguela", value: 3200 },
+	{ name: "Huambo", value: 2800 },
+	{ name: "Uíge", value: 2100 },
+	{ name: "Outras", value: 1900 },
 ];
 
 const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B"];
@@ -19,7 +19,7 @@ const CategoryDistributionChart = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.3 }}
 		>
-			<h2 className='text-lg font-medium mb-4 text-gray-100'>Distribuição por Categorias</h2>
+			<h2 className='text-lg font-medium mb-4 text-gray-100'>Distribuição por Províncias</h2>
 			<div className='h-80'>
 				<ResponsiveContainer width={"100%"} height={"100%"}>
 					<PieChart>

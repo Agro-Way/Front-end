@@ -182,7 +182,7 @@ const ProductsTable = () => {
                       openModal({
                         title: 'Editar Produto',
                         content: (
-                          <EditProductForm />
+                          <EditProductForm product={product} />
                         ),
                       })
                     }
@@ -196,7 +196,7 @@ const ProductsTable = () => {
                       openModal({
                         title: 'Eliminar Produto',
                         content: (
-                          <DeleteProductForm />
+                          <DeleteProductForm product={product} />
                         ),
                       })
                     }
@@ -211,7 +211,7 @@ const ProductsTable = () => {
               
 
         <Modal isOpen={!!modalData} onClose={closeModal}>
-          <h2 className="text-xl font-semibold mb-4">{modalData?.title}</h2>
+          <h2 className="text-xl font-semibold mb-4 text-gray-100">{modalData?.title}</h2>
           {modalData?.content}
         </Modal>
       </div>

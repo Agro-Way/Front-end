@@ -16,7 +16,7 @@ const salesData = [
 	{ name: "Jun", Vendas: 7500 },
 ];
 
-const SalesOverviewChart = () => {
+const DeliveriesOverviewChart = () => {
 	return (
 		<motion.div
 			className='bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700'
@@ -24,7 +24,7 @@ const SalesOverviewChart = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.2 }}
 		>
-			<h2 className='text-lg font-medium mb-4 text-gray-100'>Vendas Gerais</h2>
+			<h2 className='text-lg font-medium mb-4 text-gray-100'>Entregas Gerais</h2>
 
 			<div className='h-80'>
 				<ResponsiveContainer width={"100%"} height={"100%"}>
@@ -53,4 +53,4 @@ const SalesOverviewChart = () => {
 		</motion.div>
 	);
 };
-export default SalesOverviewChart;
+export default DeliveriesOverviewChart;
