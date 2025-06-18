@@ -38,7 +38,7 @@ export default function FullscreenModal({ onClose, title, children }) {
 					{/* Botão de fechar */}
 					<button
 						type="button"
-						className="absolute top-4 right-4 text-gray-400 hover:text-white"
+						className="absolute cursor-pointer top-4 right-4 text-gray-400 hover:text-white"
 						onClick={onClose}
 					>
 						<X className="w-6 h-6" />
