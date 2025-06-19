@@ -50,25 +50,25 @@ const ModalWrapper = () => {
                 <div className="image">
                   <img src="/images/product-1.jpg" alt="Produto 1" />
                 </div>
-                <p><strong>Produto:</strong> Milho Safra 2025</p>
+                <p><strong>Produto:</strong> Grãos Safra 2025</p>
                 <p><strong>Código:</strong> AGRO-20250601</p>
-                <p><strong>Quantidade:</strong> 500 sacas</p>
+                <p><strong>Quantidade:</strong> 500 sacos</p>
                 <p><strong>Data da Compra:</strong> 10/06/2025</p>
               </div>
               <div className="column">
                 <h2 className="h2">👨‍🌾 Produtor</h2>
-                <p><strong>Nome:</strong> João da Fazenda</p>
-                <p><strong>Propriedade:</strong> Fazenda Boa Esperança</p>
-                <p><strong>Telefone:</strong> (11) 99999-1234</p>
-                <p><strong>E-mail:</strong> joao@fazenda.com</p>
+                <p><strong>Nome:</strong> João Benguela</p>
+                <p><strong>Propriedade:</strong> Fazenda Benguela</p>
+                <p><strong>Telefone:</strong> +244 923 456 789</p>
+                <p><strong>E-mail:</strong> joao@benguela.com</p>
               </div>
             </div>
 
             <div className="section">
               <h2 className="h2">🚚 Transporte</h2>
-              <p><strong>Motorista:</strong> Carlos Souza</p>
-              <p><strong>Veículo:</strong> Caminhão - Placa ABC1D23</p>
-              <p><strong>Telefone:</strong> (11) 98888-4567</p>
+              <p><strong>Motorista:</strong> Carlos Nzola</p>
+              <p><strong>Veículo:</strong> Caminhão - Matrícula LDA1D23</p>
+              <p><strong>Telefone:</strong> +244 922 456 789</p>
             </div>
 
             <div className="grid">
@@ -88,8 +88,8 @@ const ModalWrapper = () => {
             </div>
 
             <div className="button-group">
-              <Link to="https://wa.me/5511999991234" target="_blank" className="btn" rel="noreferrer">Falar com Produtor</Link>
-              <Link to="https://wa.me/5511988884567" target="_blank" className="btn blue" rel="noreferrer">Falar com Motorista</Link>
+              <Link to="https://wa.me/923456789" target="_blank" className="btn" rel="noreferrer">Falar com Produtor</Link>
+              <Link to="https://wa.me/923456789" target="_blank" className="btn blue" rel="noreferrer">Falar com Motorista</Link>
               <Link to="#" className="btn gray">Baixar Comprovante</Link>
             </div>
           </motion.section>

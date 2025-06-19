@@ -95,8 +95,8 @@ function ConsultarPedido() {
             </div>
 
             <div className="button-group">
-              <Link to="https://wa.me/5511999991234" target="_blank" className="btn" rel="noreferrer">Falar com Produtor</Link>
-              <Link to="https://wa.me/5511988884567" target="_blank" className="btn blue" rel="noreferrer">Falar com Motorista</Link>
+              <Link to="https://wa.me/923456789" target="_blank" className="btn" rel="noreferrer">Falar com Produtor</Link>
+              <Link to="https://wa.me/923456789" target="_blank" className="btn blue" rel="noreferrer">Falar com Motorista</Link>
               <Link to="#" className="btn gray">Baixar Comprovante</Link>
             </div>
           </motion.section>

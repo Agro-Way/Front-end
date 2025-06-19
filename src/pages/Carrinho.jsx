@@ -101,11 +101,9 @@ function Carrinho() {
 
             <div className="total">Total: 300 Kz</div>
 
-            <div className="botoes-finais">
-              <Link to="/produtos">
-                <button type="button" className="btn continuar-btn">
-                  Continuar Comprando
-                </button>
+            <div className="botoes-finais" >
+              <Link to="/produtos" className="btn continuar-btn">
+                Continuar Comprando
               </Link>
               <button
                 type="submit"
@@ -114,10 +112,8 @@ function Carrinho() {
               >
                 Limpar Carrinho
               </button>
-              <Link to="/checkout">
-                <button type="button" className="btn checkout-btn">
-                  Finalizar Compra
-                </button>
+              <Link to="/checkout" className="btn checkout-btn">
+                Finalizar Compra
               </Link>
             </div>
           </form>

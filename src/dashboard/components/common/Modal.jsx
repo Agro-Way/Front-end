@@ -13,6 +13,11 @@ const Modal = ({ isOpen, onClose, children }) => {
         <div
           className="fixed inset-0 z-50 bg-black/50 text-gray-100  bg-opacity-50 flex justify-center items-center"
           onClick={onClose}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              onClose();
+            }
+          }}
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
@@ -29,7 +34,21 @@ const Modal = ({ isOpen, onClose, children }) => {
             >
               &times;
             </button>
-            {children}
+            
+            {/* Conteúdo do modal */}
+            <div className="mb-6">
+              {children}
+            </div>
+
+            {/* Botão no rodapé */}
+            <div className="flex justify-end">
+              <button type="button"
+                onClick={onClose}
+                className="px-4 py-2 cursor-pointer bg-red-600 hover:bg-red-700 text-white rounded-lg"
+              >
+                Cancelar
+              </button>
+            </div>
           </motion.div>
         </div>
       )}

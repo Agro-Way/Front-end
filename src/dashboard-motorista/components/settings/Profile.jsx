@@ -34,7 +34,7 @@ const Profile = () => {
 				</div>
 			</div>
 
-			<button className='bg-indigo-600 cursor-pointer hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-200 w-full sm:w-auto'
+			<button type="button" className='bg-indigo-600 cursor-pointer hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-200 w-full sm:w-auto'
 			onClick={() =>
                 openModal({
                     title: 'Editar Perfil',
