@@ -6,7 +6,6 @@
     background-color: var(--white);
     padding: 2rem;
     border-radius: 1.2rem;
-    box-shadow: var(--box-shadow);
     overflow-x: auto;
 }
 
@@ -45,6 +44,10 @@
     width: 4rem;
 }
 
+.carrinho .botoes-finais .btn {
+    border-radius: .5rem;
+}
+
 .carrinho .remover-btn {
     background-color: #e74c3c;
     color: white;
@@ -77,9 +80,9 @@
     background-color: #9b59b6;
 }
 
-@media(max-width: 480px){
+@media(max-width: 768px){
     .carrinho .botoes-finais {
-        justify-content: center;
+        flex-direction: column;
     }
     .carrinho .botoes-finais .btn{
         width: 100%;
