@@ -129,6 +129,14 @@ section, footer{
     margin-top: 8rem;
 }
 
+.none{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    color: var(--primary);
+}
+
 /* header */
 .header{
     position: fixed;

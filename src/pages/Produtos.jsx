@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import CategorySlider from "../components/CategorySlider";
+import produtos from "../components/DadosProdutos"
+import { formatarKz } from "../utils/Format";
 
 function Produtos() {
   useDocumentTitle("Produtos | Agroway");
@@ -31,83 +33,27 @@ function Produtos() {
         </form>
 
         <div className="box-container">
-          <div className="box">
-            <div className="image">
-              <img src="images/product-1.jpg" alt="Produto 1" />
-            </div>
-            <div className="content">
-              <h3>25 Kilos De Grãos</h3>
-              <div className="price">15.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/product-2.jpg" alt="Produto 2" />
-            </div>
-            <div className="content">
-              <h3>Cesto De Melancia</h3>
-              <div className="price">18.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/product-3.jpg" alt="Produto 3" />
-            </div>
-            <div className="content">
-              <h3>Cesto De Folhas</h3>
-              <div className="price">20.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/product-4.jpg" alt="Produto 4" />
-            </div>
-            <div className="content">
-              <h3>Cesto de Ananás</h3>
-              <div className="price">30.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/product-2.jpg" alt="Produto 2" />
-            </div>
-            <div className="content">
-              <h3>Cesto De 100 Melancias</h3>
-              <div className="price">40.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/product-3.jpg" alt="Produto 3" />
-            </div>
-            <div className="content">
-              <h3>Cesto de 500 Folhas</h3>
-              <div className="price">100.000Kz</div>
-              <div />
-              <Link to="/carrinho" className="fas fa-shopping-cart" />
-              <Link to="/produtos/detalhes/" className="fas fa-eye" />
-            </div>
-          </div>
+          {produtos.length === 0 ? (
+            <p className="none"> Nenhum produto disponível no momento.</p>
+          ) 
+          : (
+            produtos.map((produto) => {
+              return (
+                <div className="box" key={produto.id}>
+                  <div className="image">
+                    <img src={produto.imagem} alt={produto.nome} />
+                  </div>
+                  <div className="content">
+                    <h3>{produto.nome}</h3>
+                    <div className="price">{formatarKz(produto.preco)}</div>
+                    <div />
+                    <Link to="/carrinho" className="fas fa-shopping-cart" />
+                    <Link to={`/produtos/detalhes/${produto.id}`} className="fas fa-eye" />
+                  </div>
+                </div>
+              )
+            })
+          )}
         </div>
       </section>
 
@@ -121,12 +67,12 @@ function Produtos() {
                   <i className="fas fa-chevron-left" />
                 </Link >
               </li>
-              <li className="page-item"><Link class="page-link" to="#">1</Link ></li>
-              <li className="page-item"><Link class="page-link" to="#">2</Link ></li>
-              <li className="page-item"><Link class="page-link" to="#">3</Link ></li>
-              <li className="page-item"><Link class="page-link" to="#">4</Link ></li>
-              <li className="page-item"><Link class="page-link" to="#">5</Link ></li>
-              <li className="page-item"><Link class="page-link"to="#">6</Link ></li>
+              <li className="page-item"><Link className="page-link" to="#">1</Link ></li>
+              <li className="page-item"><Link className="page-link" to="#">2</Link ></li>
+              <li className="page-item"><Link className="page-link" to="#">3</Link ></li>
+              <li className="page-item"><Link className="page-link" to="#">4</Link ></li>
+              <li className="page-item"><Link className="page-link" to="#">5</Link ></li>
+              <li className="page-item"><Link className="page-link"to="#">6</Link ></li>
               <li className="page-item">
                 <Link  className="page-link" to="#" title="Próximo">
                   <i className="fas fa-chevron-right" />
