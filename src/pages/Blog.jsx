@@ -1,5 +1,5 @@
 // src/pages/Blog.jsx
-import React from "react";
+import React, {useState} from "react";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +8,13 @@ import blogs from "../components/DadosBlogs"
 
 function Blog() {
   useDocumentTitle("Blog | Agroway");
+
+  const [termoBusca, setTermoBusca] = useState("") // Estado para o texto digitado
+  
+  // Função de filtragem dos produtos
+  const blogsFiltrados = blogs.filter((blog) =>
+    blog.titulo.toLowerCase().includes(termoBusca.toLowerCase())
+  );
 
   return (
     <>
@@ -25,17 +32,17 @@ function Blog() {
       <section className="blog">
         <h1 className="heading">Nossos <span>Posts</span></h1>
 
-        <form action="" className="search-form">
-          <input type="search" name="busca" id="search-box" placeholder="Busque aqui..." required/>
+        <form action="" className="search-form" onSubmit={(e) => e.preventDefault()}>
+          <input type="search" name="busca" id="search-box" value={termoBusca} onChange={(e) => setTermoBusca(e.target.value)} placeholder="Busque aqui..." required/>
           <button type="submit" className="fas fa-search" title="Pesquisar" />
         </form>
 
         <div className="box-container">
-          {blogs.length === 0 ? (
+          {blogsFiltrados.length === 0 ? (
             <p className="none"> Nenhum post disponível no momento.</p>
           ) 
           : (
-            blogs.map((blog) => {
+            blogsFiltrados.map((blog) => {
               return (
                 <div className="box" key={blog.id}>
                   <div className="image">
@@ -68,12 +75,9 @@ function Blog() {
                   <i class="fas fa-chevron-left" />
                 </Link>
               </li>
-              <li class="page-item"><Link class="page-link" to="#">1</Link></li>
-              <li class="page-item"><Link class="page-link" to="#">2</Link></li>
-              <li class="page-item"><Link class="page-link" to="#">3</Link></li>
-              <li class="page-item"><Link class="page-link" to="#">4</Link></li>
-              <li class="page-item"><Link class="page-link" to="#">5</Link></li>
-              <li class="page-item"><Link class="page-link" to="#">6</Link></li>
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <li className="page-item" key={n}><Link className="page-link" to="#">{n}</Link ></li>
+              ))}
               <li class="page-item">
                 <Link class="page-link" to="#" title="Próximo">
                   <i class="fas fa-chevron-right" />
