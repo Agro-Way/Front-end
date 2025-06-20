@@ -22,7 +22,7 @@ function Blog() {
       <Header />
 
       {/*sub-heading*/}
-      <section class="sub-heading">
+      <section className="sub-heading">
         <h1>Nosso Blog</h1>
       </section>
 
