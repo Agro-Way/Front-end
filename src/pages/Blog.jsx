@@ -4,7 +4,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-
+import blogs from "../components/DadosBlogs"
 
 function Blog() {
   useDocumentTitle("Blog | Agroway");
@@ -20,41 +20,6 @@ function Blog() {
       </section>
 
       {/*categorias*/}
-      {/*<section>
-        <div class="category">
-          <div class="swiper category-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide slide">
-                <a href="#">Notícias</a>
-              </div>
-              <div class="swiper-slide slide">
-                    <a href="#">Desporto</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Sociedade</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Música</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Ciência</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Tecnologia</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Cultura</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Saúde</a>
-              </div>
-              <div class="swiper-slide slide">
-                <a href="#">Entretenimento</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>*/}
 
       {/*blogs*/}
       <section className="blog">
@@ -66,102 +31,31 @@ function Blog() {
         </form>
 
         <div className="box-container">
-          <div className="box">
-            <div className="image">
-              <img src="images/blog1.png" alt="Blog 1" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/blog2.png" alt="Blog 2" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/blog3.png" alt="Blog 3" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/blog1.png" alt="Blog 1" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/blog2.png" alt="Blog 2" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-
-          <div className="box">
-            <div className="image">
-              <img src="images/blog3.png" alt="Blog 3" />
-            </div>
-            <div className="content">
-              <div className="icons">
-                <Link to="#"><i className="fas fa-user" /> Por Admin</Link>
-              </div>
-              <h3>Vegetais Saudáveis Para Experimentar</h3>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <Link to="/blog/post/" className="btn">Leia Mais</Link>
-            </div>
-          </div>
-        </div>
+          {blogs.length === 0 ? (
+            <p className="none"> Nenhum post disponível no momento.</p>
+          ) 
+          : (
+            blogs.map((blog) => {
+              return (
+                <div className="box" key={blog.id}>
+                  <div className="image">
+                    <img src={blog.imagem} alt={blog.titulo} />
+                  </div>
+                  <div className="content">
+                    <div className="icons">
+                      <Link to="#"><i className="fas fa-user" /> Por {blog.autor}</Link>
+                    </div>
+                    <h3>{blog.titulo}</h3>
+                    <p>
+                      {blog.desc}
+                    </p>
+                    <Link to="/blog/post/" className="btn">Leia Mais</Link>
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div> 
       </section>
 
       {/*paginação*/}
