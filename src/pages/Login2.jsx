@@ -7,7 +7,7 @@ import "./../assets/css/login.css";
 //import LoginStyle from '@/assets/css/LogintStyle';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidation } from "../validations/loginValidation";
+import { loginValidation2 } from "../validations/loginValidation2";
 import { toast, ToastContainer } from "react-toastify";
 
 function Login2() {
@@ -19,7 +19,7 @@ function Login2() {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(loginValidation),
+    resolver: yupResolver(loginValidation2),
   });
 
   const onSubmit = (data) => {
