@@ -5,7 +5,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./../assets/css/login.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidation } from "../validations/loginValidation";
+import { loginValidation2 } from "../validations/loginValidation2";
 import { toast, ToastContainer } from "react-toastify";
 
 function Login2() {
@@ -17,8 +17,13 @@ function Login2() {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(loginValidation),
+    resolver: yupResolver(loginValidation2),
   });
+
+  /*
+  Email: eve.holt@reqres.in
+  senha: cityslicka
+  */
 
   const onSubmit = async (data) => {
     try {
@@ -35,7 +40,6 @@ function Login2() {
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
-
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       toast.error("E-mail ou senha inválidos.");
