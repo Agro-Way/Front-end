@@ -16,6 +16,7 @@
     "@tailwindcss/vite": "^4.1.5",
     "@tinymce/tinymce-react": "^6.1.0",
     "aos": "^2.3.4",
+    "axios": "^1.10.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "leaflet": "^1.9.4",
