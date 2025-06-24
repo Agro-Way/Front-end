@@ -1,5 +1,5 @@
 // src/pages/Produtos.jsx
-import React from "react";
+import React, {useState} from "react";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,6 +10,13 @@ import { formatarKz } from "../utils/Format";
 
 function Produtos() {
   useDocumentTitle("Produtos | Agroway");
+
+  const [termoBusca, setTermoBusca] = useState("") // Estado para o texto digitado
+
+  // Função de filtragem dos produtos
+  const produtosFiltrados = produtos.filter((produto) =>
+    produto.nome.toLowerCase().includes(termoBusca.toLowerCase())
+  );
 
   return (
     <>
@@ -27,17 +34,17 @@ function Produtos() {
       <section className="product">
         <h1 className="heading">Nossos <span>Produtos</span></h1>
 
-        <form action="" className="search-form">
-          <input type="search" name="busca" id="search-box" placeholder="Busque aqui..." required/>
+        <form action="" className="search-form" onSubmit={(e) => e.preventDefault()}>
+          <input type="search" name="busca" id="search-box" value={termoBusca} onChange={(e) => setTermoBusca(e.target.value)} placeholder="Busque aqui..." required/>
           <button type="submit" className="fas fa-search" title="Pesquisar" />
         </form>
 
         <div className="box-container">
-          {produtos.length === 0 ? (
+          {produtosFiltrados.length === 0 ? (
             <p className="none"> Nenhum produto disponível no momento.</p>
           ) 
           : (
-            produtos.map((produto) => {
+            produtosFiltrados.map((produto) => {
               return (
                 <div className="box" key={produto.id}>
                   <div className="image">
@@ -67,12 +74,9 @@ function Produtos() {
                   <i className="fas fa-chevron-left" />
                 </Link >
               </li>
-              <li className="page-item"><Link className="page-link" to="#">1</Link ></li>
-              <li className="page-item"><Link className="page-link" to="#">2</Link ></li>
-              <li className="page-item"><Link className="page-link" to="#">3</Link ></li>
-              <li className="page-item"><Link className="page-link" to="#">4</Link ></li>
-              <li className="page-item"><Link className="page-link" to="#">5</Link ></li>
-              <li className="page-item"><Link className="page-link"to="#">6</Link ></li>
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <li className="page-item" key={n}><Link className="page-link" to="#">{n}</Link ></li>
+              ))}
               <li className="page-item">
                 <Link  className="page-link" to="#" title="Próximo">
                   <i className="fas fa-chevron-right" />

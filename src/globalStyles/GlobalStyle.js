@@ -360,6 +360,7 @@ section, footer{
     gap: 1.5rem;
 }
 .services .box-container .box{
+    max-width: 30rem;
     text-align: center;
     padding: 2rem;
     box-shadow: var(--box-shadow);
@@ -406,6 +407,7 @@ section, footer{
   gap: 2rem;
 }
 .product .box-container .box{
+  max-width: 35rem;
   text-align: center;
   background: var(--white);
   border-radius: .5rem;
@@ -503,6 +505,7 @@ section, footer{
   gap: 1.5rem;
 }
 .blog .box-container .box{
+  max-width: 35rem;
   box-shadow: var(--box-shadow);
 }
 .blog .box-container .box .image{
