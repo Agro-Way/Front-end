@@ -56,10 +56,7 @@ function Produtos2() {
           Nossos <span>Produtos</span>
         </h1>
 
-        <form
-          className="search-form"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <input
             type="search"
             id="search-box"
@@ -99,6 +96,12 @@ function Produtos2() {
             )}
           </div>
         )}
+
+        <div className="d-flex pt-8">
+          <Link to="/produtos" className="btn">
+            Ver Mais Produtos <i className="fas fa-arrow-down" />
+          </Link>
+        </div>
       </section>
 
       <section>
