@@ -10,7 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../validations/loginValidation";
 import { toast, ToastContainer } from "react-toastify";
 
-function Login() {
+function Login2() {
   useDocumentTitle("Login 2 | Agroway");
 
   const {
@@ -83,4 +83,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login2;
