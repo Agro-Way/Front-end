@@ -360,7 +360,6 @@ section, footer{
     gap: 1.5rem;
 }
 .services .box-container .box{
-    max-width: 30rem;
     text-align: center;
     padding: 2rem;
     box-shadow: var(--box-shadow);
