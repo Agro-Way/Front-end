@@ -31,6 +31,8 @@ import MotoristaInfo from "./pages/MotoristaInfo";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import ConfirmarCodigo from "./pages/ConfirmarCodigo";
 import RedefinirSenha from "./pages/RedefinirSenha";
+import TermosCondicoes from "./pages/TermosCondicoes";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import NotFound from "./pages/NotFound";
 
 // Dashboard produtor
@@ -87,6 +89,8 @@ function AppRoutes() {
           path="/recuperar-senha/redefinir-senha/"
           element={<RedefinirSenha />}
         />
+        <Route path="/termos-condicoes" element={<TermosCondicoes />} />
+        <Route path="/politicas-privacidade" element={<PoliticaPrivacidade />} />
 
         {/* Dashboard produtor */}
         <Route
