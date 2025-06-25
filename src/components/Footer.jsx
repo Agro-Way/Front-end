@@ -23,7 +23,6 @@ function Footer() {
 	            <Link to="/sobre" className="links"> Sobre</Link>
 	            <Link to="/blog" className="links"> Blog</Link>
 	            <Link to="/produtos" className="links"> Produtos</Link>
-	            <Link to="/contato" className="links"> Contato</Link>
 	        </div>
 
 			<div className="box">
