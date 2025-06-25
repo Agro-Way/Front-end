@@ -1,6 +1,5 @@
 // src/Routes.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 // Estilo global (apenas para o site)
 import GlobalStyle from "./globalStyles/GlobalStyle";
@@ -11,6 +10,8 @@ import DashboardDriverLayout from "./layouts/DashboardDriverLayout";
 
 // Modal
 import ModalWrapper from "./components/ModalWrapper";
+
+import PrivateRoute from "./components/PrivateRoute";
 
 // Páginas do site
 import Home from "./pages/Home";
@@ -96,9 +97,11 @@ function AppRoutes() {
         <Route
           path="/dashboard"
           element={
+            <PrivateRoute>
             <DashboardLayout>
               <OverviewPage />
             </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
