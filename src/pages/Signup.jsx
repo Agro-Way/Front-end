@@ -1,10 +1,9 @@
-// src/pages/Signup.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./../assets/css/signup.css";
-//import SignStyle from '@/assets/css/SignStyle';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cadastroValidation } from "../validations/cadastroValidation";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,32 +11,53 @@ import { toast, ToastContainer } from "react-toastify";
 function Signup() {
   useDocumentTitle("Cadastrar-se | Agroway");
 
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
-    control,
     reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(cadastroValidation),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     try {
-      console.log(data);
+      const payload = {
+        name: data.nome,
+        email: data.email,
+        telefone: data.telefone,
+        role: Number.parseInt(data.funcao),
+        password: data.senha,
+      };
+
+      const response = await axios.post(
+        "https://agro-way-api.onrender.com/api/auth/signup",
+        payload
+      );
+
       toast.success("Cadastro feito com sucesso!");
-      reset(); // Limpa o formulário
+      reset();
+
+      // Redireciona para login após breve delay
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (error) {
-      toast.error("Erro ao fazer cadastro. Tente novamente.");
+      console.error("Erro ao fazer cadastro:", error);
+      if (error.response?.data?.message) {
+        toast.error(`Erro: ${error.response.data.message}`);
+      } else {
+        toast.error("Erro ao fazer cadastro. Tente novamente.");
+      }
     }
   };
 
   return (
     <>
-      {/*Signup*/}
       <section className="signup">
         <form
-          action=""
           method="POST"
           onSubmit={handleSubmit(onSubmit)}
           className="form-signup"
@@ -48,17 +68,16 @@ function Signup() {
             <input
               type="text"
               {...register("nome")}
-              name="nome"
               placeholder="Seu nome"
               className="box"
             />
             <p className="error-msg">{errors.nome?.message}</p>
           </div>
+
           <div className="inputBox">
             <input
               type="email"
               {...register("email")}
-              name="email"
               placeholder="exemplo@gmail.com"
               className="box"
             />
@@ -68,7 +87,6 @@ function Signup() {
           <div className="inputBox">
             <input
               type="tel"
-              name="tel"
               {...register("telefone")}
               placeholder="Seu telefone"
               className="box"
@@ -78,9 +96,7 @@ function Signup() {
 
           <div className="inputBox">
             <select
-              id="funcao"
               {...register("funcao")}
-              name="funcao"
               className="box"
               defaultValue=""
             >
@@ -98,7 +114,6 @@ function Signup() {
             <input
               type="password"
               {...register("senha")}
-              name="senha"
               placeholder="Sua palavra-pass"
               className="box"
             />
@@ -109,7 +124,6 @@ function Signup() {
             <input
               type="password"
               {...register("confirmarSenha")}
-              name="confirmarSenha"
               placeholder="Confirme sua palavra-pass"
               className="box"
             />
@@ -125,7 +139,6 @@ function Signup() {
         </form>
       </section>
 
-      {/* Container de Notificações */}
       <ToastContainer
         toastClassName="toast-tam"
         position="top-right"

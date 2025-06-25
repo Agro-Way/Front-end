@@ -11,6 +11,8 @@ import { toast, ToastContainer } from "react-toastify";
 function Login2() {
   useDocumentTitle("Login 2 | Agroway");
 
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -20,35 +22,41 @@ function Login2() {
     resolver: yupResolver(loginValidation2),
   });
 
-  /*
-  Email: eve.holt@reqres.in
-  senha: cityslicka
-  */
-
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("https://reqres.in/api/login", {
-        email: data.email,
-        password: data.senha,
-      });
+      const response = await axios.post(
+        "https://agro-way-api.onrender.com/api/auth/login",
+        {
+          email: data.email,
+          password: data.senha, // A API espera "password", mas o campo do form é "senha"
+        }
+      );
 
-      console.log("Token recebido:", response.data.token);
+      const token = response.data.access_token;
+      console.log("Token recebido:", token);
+
+      // Armazena o token no localStorage
+      localStorage.setItem("token", token);
+
       toast.success("Login feito com sucesso!");
       reset();
 
-      // Redireciona para o dashboard após breve delay (opcional)
+      // Redireciona após um pequeno delay
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
     } catch (error) {
       console.error("Erro ao fazer login:", error);
-      toast.error("E-mail ou senha inválidos.");
+      if (error.response?.data?.message) {
+        toast.error(`Erro: ${error.response.data.message}`);
+      } else {
+        toast.error("E-mail ou senha inválidos.");
+      }
     }
   };
 
   return (
     <>
-      {/*login*/}
       <section className="login">
         <h1 className="title">Agroway</h1>
 
@@ -58,6 +66,7 @@ function Login2() {
           autoComplete="on"
         >
           <h3>Faça o Seu Login</h3>
+
           <input
             type="email"
             {...register("email")}
@@ -69,7 +78,7 @@ function Login2() {
           <input
             type="password"
             {...register("senha")}
-            placeholder="Sua Palavra-Pass"
+            placeholder="Sua Palavra-Passe"
             className="box"
           />
           <p className="error-msg">{errors.senha?.message}</p>
