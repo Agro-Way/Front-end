@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 .form-checkout{
-    max-width: 80rem;
-    margin: auto;
+    max-width: 90rem;
+    margin: 2rem auto;
     background: var(--white);
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: .5rem;
     box-shadow: var(--box-shadow);
 }
 .form-checkout .title {
@@ -23,6 +23,15 @@
     border-bottom: .1rem solid #ccc;
     padding-bottom: .5rem;
     margin-bottom: 1rem;
+}
+.form-checkout h2 span{
+    font-size: 1.5rem;
+    color: #666;
+}
+.form-checkout label{
+    font-size: 1.6rem;
+    color: #5a5a5a;
+    font-weight: 600;
 }
 .form-checkout .form-group {
     margin-bottom: 1.5rem;
@@ -69,3 +78,8 @@
     border-radius: .5rem;
 }
 
+@media (max-width: 768px) {
+    .form-checkout{
+        box-shadow: none;
+    }
+}
