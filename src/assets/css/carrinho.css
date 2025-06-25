@@ -80,6 +80,18 @@
     background-color: #9b59b6;
 }
 
+.frete-provincia {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.6rem;
+}
+
+.frete-provincia select {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
 @media(max-width: 768px){
     .carrinho .botoes-finais {
         flex-direction: column;
