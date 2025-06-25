@@ -40,9 +40,11 @@ function Home() {
           <div className="content">
             <h3>Sobre <span>Agroway</span></h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-              Esse nesciunt impedit voluptatibus! Ipsam veniam, amet aliquid mollitia odio, 
-              aliquam iure error deserunt sint nobis eius vitae, blanditiis ex commodi molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Nossa plataforma conecta agricultores, transportadoras e clientes finais, 
+              facilitando a comercialização e logística de produtos do agronegócio. Buscamos tornar o processo 
+              mais eficiente, transparente e acessível, promovendo o desenvolvimento do setor rural. Com tecnologia 
+              simples e intuitiva, aproximamos quem produz, quem transporta e quem consome, fortalecendo toda a cadeia 
+              produtiva.
             </p>
             <Link to="/sobre" className="btn">Leia Mais</Link>
           </div>

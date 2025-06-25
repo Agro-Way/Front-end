@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0; padding: 0;
     box-sizing: border-box;
     outline: none; border: none;
-    text-decoration: none; list-style: none;
+    text-decoration: none;
     transition: all .2s linear;
 }
 *::selection{
@@ -360,7 +360,6 @@ section, footer{
     gap: 1.5rem;
 }
 .services .box-container .box{
-    max-width: 30rem;
     text-align: center;
     padding: 2rem;
     box-shadow: var(--box-shadow);

@@ -10,10 +10,10 @@ function Footer() {
           		<h3>Encontra-nos aqui</h3>
             	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod aliqua.</p>
 	            <div className="share">
-	              <a href="#" target="_blank" className="fab fa-facebook"></a>
-	              <a href="#" target="_blank" className="fab fa-twitter"></a>
-	              <a href="#" target="_blank" className="fab fa-instagram"></a>
-	              <a href="#" target="_blank" className="fab fa-linkedin"></a>
+	              <a href="https://web.facebook.com/" arial-label="Facebook" target="_blank" className="fab fa-facebook" rel="noreferrer"></a>
+	              <a href="https://www.twitter.com/" arial-label="Twitter" target="_blank" className="fab fa-twitter" rel="noreferrer"></a>
+	              <a href="https://www.instagram.com/" arial-label="Instagram" target="_blank" className="fab fa-instagram" rel="noreferrer"></a>
+	              <a href="https://www.linkedin.com/" arial-label="Linkedin" target="_blank" className="fab fa-linkedin" rel="noreferrer"></a>
 	            </div>
         	</div>
 
@@ -23,7 +23,12 @@ function Footer() {
 	            <Link to="/sobre" className="links"> Sobre</Link>
 	            <Link to="/blog" className="links"> Blog</Link>
 	            <Link to="/produtos" className="links"> Produtos</Link>
-	            <Link to="/contato" className="links"> Contato</Link>
+	        </div>
+
+			<div className="box">
+	            <h3>Outros Links </h3>
+	            <Link to="termos-condicoes" className="links"> Termos e Condições</Link>
+	            <Link to="/politicas-privacidade" className="links"> Política e Privacidade</Link>
 	        </div>
 
 	        <div className="box">
