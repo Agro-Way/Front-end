@@ -1,16 +1,49 @@
 // src/pages/Carrinho.jsx
-import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../assets/css/carrinho.css'
+import { formatarKz } from "../utils/Format";
 
 function Carrinho() {
   useDocumentTitle('Carrinho | Agroway')
 
-  const [quantidade, setQuantidade] = useState(1)
+  const [provinciaSelecionada, setProvinciaSelecionada] = useState("Bengo")
+  const [frete, setFrete] = useState(0)
+
+  const provincias = {
+    "Bengo": 780,
+    "Benguela": 800,
+    "Bié": 870,
+    "Cabinda": 950,
+    "Cuando Cubango": 1000,
+    "Cuanza Norte": 830,
+    "Cuanza Sul": 840,
+    "Cunene": 920,
+    "Huambo": 850,
+    "Huíla": 900,
+    "Luanda": 1000,
+    "Lunda Norte": 1050,
+    "Lunda Sul": 1020,
+    "Malanje": 880,
+    "Moxico": 1100,
+    "Namibe": 950,
+    "Uíge": 890,
+    "Zaire": 860
+  }
+
+  useEffect(() => {
+    setFrete(provincias[provinciaSelecionada] || 0)
+  }, [provinciaSelecionada])
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log("Formulário processado sem recarregar a página")
+  }
+
+  const subtotal = 100 * 1 + 200 // Apenas um limão e uma banana para exemplo
 
   return (
     <>
@@ -21,7 +54,7 @@ function Carrinho() {
       <section className="carrinhos pt-8">
         <div className="carrinho">
           <h2>Carrinho de Compras</h2>
-          <form action="/atualizar-carrinho" method="POST">
+          <form action="" method="POST" onSubmit={handleSubmit}>
             <table>
               <thead>
                 <tr>
@@ -48,12 +81,11 @@ function Carrinho() {
                       type="number"
                       name="quantidade"
                       min="1"
-                      value={quantidade}
-                      onChange={e => setQuantidade(Number(e.target.value))}
+                      Value="1"
                     />
                   </td>
-                  <td>100 Kz</td>
-                  <td>100 Kz</td>
+                  <td>{formatarKz(100)}</td>
+                  <td>{formatarKz(100)}</td>
                   <td>
                     <button
                       type="submit"
@@ -63,7 +95,6 @@ function Carrinho() {
                   <td>
                     <button
                       type="submit"
-                      formAction="/remover-item"
                       className="btn remover-btn fas fa-trash"
                     />
                   </td>
@@ -80,8 +111,8 @@ function Carrinho() {
                   <td>
                     <input type="number" name="quantidade" Value="1" min="1" />
                   </td>
-                  <td>200 Kz</td>
-                  <td>200 Kz</td>
+                  <td>{formatarKz(200)}</td>
+                  <td>{formatarKz(200)}</td>
                   <td>
                     <button
                       type="submit"
@@ -91,7 +122,6 @@ function Carrinho() {
                   <td>
                     <button
                       type="submit"
-                      formAction="/remover-item"
                       className="btn remover-btn fas fa-trash"
                     />
                   </td>
@@ -99,7 +129,24 @@ function Carrinho() {
               </tbody>
             </table>
 
-            <div className="total">Total: 300 Kz</div>
+            <div className="frete-provincia">
+              <label htmlFor="provincia">Selecione a província para entrega:</label>
+              <select
+                id="provincia"
+                value={provinciaSelecionada}
+                onChange={e => setProvinciaSelecionada(e.target.value)}
+              >
+                {Object.keys(provincias).sort().map(prov => (
+                  <option key={prov} value={prov}>{prov}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="total">
+              Subtotal: {formatarKz(subtotal)}<br />
+              Frete ({provinciaSelecionada}): {formatarKz(frete)}<br />
+              <strong>Total Final: {formatarKz(subtotal + frete)}</strong>
+            </div>
 
             <div className="botoes-finais" >
               <Link to="/produtos" className="btn continuar-btn">
