@@ -6,6 +6,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import './../assets/css/checkout.css'
+import { formatarKz } from "../utils/Format";
 
 function Checkout() {
   useDocumentTitle("Checkout | Agroway");
@@ -25,16 +26,16 @@ function Checkout() {
             <div class="product">
               <img src="https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww" alt="Produto 1"/>
               <div class="product-details">
-                <p>Produto 1 - 50Kz</p>
+                <p>Produto 1 - {formatarKz(50)}</p>
               </div>
             </div>
             <div class="product">
               <img src="https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww" alt="Produto 2"/>
               <div class="product-details">
-                <p>Produto 1 - 30Kz</p>
+                <p>Produto 1 - {formatarKz(30)}</p>
               </div>
             </div>
-            <p class="total">Total: 80kz</p>
+            <p class="total">Total: {formatarKz(80)}</p>
           </div>
 
           <h2>Informações do Cliente</h2>
@@ -69,15 +70,19 @@ function Checkout() {
           <input type="text" name="bairro" className="box" placeholder="Seu bairro" required />
           <input type="text" name="cidade" className="box" placeholder="Sua cidade" required />
 
-          <h2>Forma de Pagamento</h2>
+          <h2>Forma de Pagamento <span>(De momento a forma de pagamento disponível é o Multicaixa Express)</span></h2>
           <select name="provincia" className="box" id="provincia">
             <option disabled selected>-- Opções de Pagamento --</option>
-            <option value="cartao">Cartão de Crédito</option>
-            <option value="visa">Visa</option>
-            <option value="paypal">Paypal</option>
+            <option value="multicaixaExpress">Multicaixa Express</option>
+            <option value="cartao" disabled>Cartão de Crédito</option>
+            <option value="visa" disabled>Visa</option>
+            <option value="paypal" disabled>Paypal</option>
           </select>
           <input type="text" name="num-cartao" className="box" placeholder="Número do cartão" required />
-          <input type="date" name="validade-cartao" className="box" placeholder="Validade do cartão" required />
+          <label htmlFor="validade-cartao">Selecione a data de validade do cartão</label>
+          <input type="date" name="validade-cartao" id="validade-cartao" className="box" placeholder="Validade do cartão" required />
+          <label htmlFor="comprovativo-pagamento">Selecione a imagem do comprovativo do pagamento do Express</label>
+          <input type="file" name="comprovativo-pagamento" id="comprovativo-pagamento" className="box" placeholder="Comprovativo do pagamento" required />
 
           <h2>Outros</h2>
           <input type="number" name="codigo-desconto" className="box" placeholder="Código de Desconto" required />
