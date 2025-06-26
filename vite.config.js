@@ -4,7 +4,7 @@ import path from 'node:path'   // <== Importar o path
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: './', // 👈 ISSO É ESSENCIAL PARA O DEPLOY FUNCIONAR DIREITO
+  base: './', // ISSO É ESSENCIAL PARA O DEPLOY FUNCIONAR DIREITO
   plugins: [react(),  tailwindcss(),],
   resolve: {
     alias: {
@@ -13,5 +13,14 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist'
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://agro-way-api.onrender.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
+      },
+    },
   },
 })
