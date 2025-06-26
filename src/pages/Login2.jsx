@@ -28,7 +28,7 @@ function Login2() {
         "https://agro-way-api.onrender.com/api/auth/login",
         {
           email: data.email,
-          password: data.senha, // A API espera "password", mas o campo do form é "senha"
+          password: data.senha, 
         }
       );
 
@@ -45,6 +45,7 @@ function Login2() {
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
+      
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       if (error.response?.data?.message) {
