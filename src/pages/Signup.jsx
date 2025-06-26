@@ -28,14 +28,12 @@ function Signup() {
         name: data.nome,
         email: data.email,
         telefone: data.telefone,
-        role: Number.parseInt(data.funcao),
+        role: data.funcao,
         password: data.senha,
+        ConfirmPassword: data.confirmarSenha,
       };
 
-      const response = await axios.post(
-        "https://agro-way-api.onrender.com/api/auth/signup",
-        payload
-      );
+      const response = await axios.post("/api/auth/signup",payload);
 
       toast.success("Cadastro feito com sucesso!");
       reset();
@@ -103,9 +101,9 @@ function Signup() {
               <option value="" disabled>
                 Selecione sua função
               </option>
-              <option value="1">Cliente</option>
-              <option value="2">Motorista</option>
-              <option value="3">Produtor</option>
+              <option value="USUARIO">Cliente</option>
+              <option value="CONDUTOR">Motorista</option>
+              <option value="PRODUTOR">Produtor</option>
             </select>
             <p className="error-msg">{errors.funcao?.message}</p>
           </div>
