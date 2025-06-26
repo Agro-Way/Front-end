@@ -24,8 +24,7 @@ function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "https://agro-way-api.onrender.com/api/auth/login",
+      const response = await axios.post("api/auth/login",
         {
           email: data.email,
           password: data.senha, 
