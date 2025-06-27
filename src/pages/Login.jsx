@@ -1,16 +1,17 @@
-// src/pages/Login.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./../assets/css/login.css";
-//import LoginStyle from '@/assets/css/LogintStyle';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidation } from "../validations/loginValidation";
+import { loginValidation2 } from "../validations/loginValidation2";
 import { toast, ToastContainer } from "react-toastify";
 
 function Login() {
   useDocumentTitle("Login | Agroway");
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -18,33 +19,71 @@ function Login() {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(loginValidation ),
+    resolver: yupResolver(loginValidation2),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     try {
-      console.log(data);
+      const response = await axios.post("api/auth/login",
+        {
+          email: data.email,
+          password: data.senha, 
+        }
+      );
+
+      const token = response.data.access_token;
+      console.log("Token recebido:", token);
+
+      // Armazena o token no localStorage
+      localStorage.setItem("token", token);
+
       toast.success("Login feito com sucesso!");
-      reset(); // Limpa o formulário
+      reset();
+
+      // Redireciona após um pequeno delay
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+      
     } catch (error) {
-      toast.error("Erro ao fazer login. Tente novamente.");
+      console.error("Erro ao fazer login:", error);
+      if (error.response?.data?.message) {
+        toast.error(`Erro: ${error.response.data.message}`);
+      } else {
+        toast.error("E-mail ou senha inválidos.");
+      }
     }
   };
 
   return (
     <>
-      {/*login*/}
       <section className="login">
         <h1 className="title">Agroway</h1>
 
-        <form action="" method="POST" onSubmit={handleSubmit(onSubmit)} className="login-form" autoComplete="on">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="login-form"
+          autoComplete="on"
+        >
           <h3>Faça o Seu Login</h3>
-          <input type="email" name="email" {...register("email")} placeholder="exemplo@gmail.com" className="box" />
+
+          <input
+            type="email"
+            {...register("email")}
+            placeholder="exemplo@gmail.com"
+            className="box"
+          />
           <p className="error-msg">{errors.email?.message}</p>
-          <input type="password" name="senha" {...register("senha")} placeholder="Sua Palavra-Pass" className="box" />
+
+          <input
+            type="password"
+            {...register("senha")}
+            placeholder="Sua Palavra-Passe"
+            className="box"
+          />
           <p className="error-msg">{errors.senha?.message}</p>
 
-          <input type="submit" name="entrar" value="Entrar" className="btn" />
+          <input type="submit" value="Entrar" className="btn" />
           <p>
             Esqueceu a senha? <Link to="/recuperar-senha">Recuperar senha</Link>
           </p>
@@ -54,8 +93,11 @@ function Login() {
         </form>
       </section>
 
-      {/* Container de Notificações */}
-      <ToastContainer toastClassName="toast-tam" position="top-right" autoClose={4000} />
+      <ToastContainer
+        toastClassName="toast-tam"
+        position="top-right"
+        autoClose={4000}
+      />
     </>
   );
 }
