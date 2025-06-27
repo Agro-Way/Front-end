@@ -28,9 +28,10 @@ function Signup() {
         name: data.nome,
         email: data.email,
         telefone: data.telefone,
-        role: data.funcao,
-        password: data.senha,
-        ConfirmPassword: data.confirmarSenha,
+        role: data.role,
+        password: data.passwoerd,
+        ConfirmPassword: data.ConfirmarPassword,
+        status: data.status
       };
 
       const response = await axios.post("/api/auth/signup",payload);
@@ -94,7 +95,7 @@ function Signup() {
 
           <div className="inputBox">
             <select
-              {...register("funcao")}
+              {...register("role")}
               className="box"
               defaultValue=""
             >
@@ -105,27 +106,44 @@ function Signup() {
               <option value="CONDUTOR">Motorista</option>
               <option value="PRODUTOR">Produtor</option>
             </select>
-            <p className="error-msg">{errors.funcao?.message}</p>
+            <p className="error-msg">{errors.role?.message}</p>
+          </div>
+
+          <div className="inputBox">
+            <select
+              {...register("status")}
+              className="box"
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Selecione seu status
+              </option>
+              <option value="ATIVO">Ativo</option>
+              <option value="INATIVO">Inativo</option>
+              <option value="PENDENTE">Pendente</option>
+              <option value="BANIDO">Banido</option>
+            </select>
+            <p className="error-msg">{errors.status?.message}</p>
           </div>
 
           <div className="inputBox">
             <input
               type="password"
-              {...register("senha")}
+              {...register("password")}
               placeholder="Sua palavra-pass"
               className="box"
             />
-            <p className="error-msg">{errors.senha?.message}</p>
+            <p className="error-msg">{errors.password?.message}</p>
           </div>
 
           <div className="inputBox">
             <input
               type="password"
-              {...register("confirmarSenha")}
+              {...register("ConfirmPassword")}
               placeholder="Confirme sua palavra-pass"
               className="box"
             />
-            <p className="error-msg">{errors.confirmarSenha?.message}</p>
+            <p className="error-msg">{errors.ConfirmPassword?.message}</p>
           </div>
 
           <button type="submit" className="btn">
