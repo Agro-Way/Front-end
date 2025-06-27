@@ -7,13 +7,16 @@ export const cadastroValidation = yup.object().shape({
   telefone: yup
     .string().required("O telefone é obrigatório.")
     .matches(telefoneAngolaRegex, "Use o formato: +244 923 456 789."),
-  senha: yup
+  password: yup
     .string().required("A senha é obrigatória.")
     .matches(passwordRegex, "A senha deve conter letras e números, mínimo 8 caracteres."),
-  confirmarSenha: yup
+  ConfirmPassword: yup
     .string().required("A confirmação da senha é obrigatória.")
-    .oneOf([yup.ref("senha")], "As senhas não coincidem."),
-  funcao: yup
+    .oneOf([yup.ref("password")], "As senhas não coincidem."),
+  role: yup
     .string().required("A função é obrigatória.")
     .oneOf(["USUARIO", "CONDUTOR", "MOTORISTA"], "Selecione uma função válida."),
+  status: yup
+    .string().required("A função é obrigatória.")
+    .oneOf(["ATIVO", "INATIVO", "PENDENTE", "BANIDO"], "Selecione um status válido."),
 });
