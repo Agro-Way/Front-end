@@ -10,7 +10,7 @@ export const cadastroValidation = yup.object().shape({
   password: yup
     .string().required("A senha é obrigatória.")
     .matches(passwordRegex, "A senha deve conter letras e números, mínimo 8 caracteres."),
-  ConfirmPassword: yup
+  confirmPassword: yup
     .string().required("A confirmação da senha é obrigatória.")
     .oneOf([yup.ref("password")], "As senhas não coincidem."),
   role: yup
