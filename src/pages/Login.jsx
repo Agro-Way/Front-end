@@ -43,7 +43,7 @@ function Login() {
       // Redireciona após um pequeno delay
       setTimeout(() => {
         navigate("/dashboard");
-      }, 1000);
+      }, 3000);
       
     } catch (error) {
       console.error("Erro ao fazer login:", error);
@@ -96,7 +96,7 @@ function Login() {
       <ToastContainer
         toastClassName="toast-tam"
         position="top-right"
-        autoClose={4000}
+        autoClose={5000}
       />
     </>
   );

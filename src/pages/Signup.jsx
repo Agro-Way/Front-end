@@ -29,24 +29,37 @@ function Signup() {
         email: data.email,
         telefone: data.telefone,
         role: data.role,
-        password: data.passwoerd,
-        ConfirmPassword: data.ConfirmarPassword,
-        status: data.status
+        password: data.password,
+        confirmPassword: data.confirmPassword,
+        status: data.status,
       };
 
-      const response = await axios.post("/api/auth/signup",payload);
+      const response = await axios.post("/api/auth/signup", payload);
 
-      toast.success("Cadastro feito com sucesso!");
-      reset();
+      // Verifica se o status está OK
+      if (response.status === 201 || response.status === 200) {
+        const msg = response.data?.message || "Cadastro feito com sucesso!";
+        toast.success(msg);
+        reset();
 
-      // Redireciona para login após breve delay
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
+        // Redireciona após delay
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+        
+      } else {
+        // Trata casos inesperados de sucesso
+        toast.warn("Cadastro concluído, mas a resposta foi inesperada.");
+        console.warn("Resposta inesperada:", response);
+      }
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
+
+      // Verifica mensagens específicas vindas do backend
       if (error.response?.data?.message) {
         toast.error(`Erro: ${error.response.data.message}`);
+      } else if (error.response?.status === 400) {
+        toast.error("Erro de validação. Verifique os dados informados.");
       } else {
         toast.error("Erro ao fazer cadastro. Tente novamente.");
       }
@@ -94,11 +107,7 @@ function Signup() {
           </div>
 
           <div className="inputBox">
-            <select
-              {...register("role")}
-              className="box"
-              defaultValue=""
-            >
+            <select {...register("role")} className="box" defaultValue="">
               <option value="" disabled>
                 Selecione sua função
               </option>
@@ -110,11 +119,7 @@ function Signup() {
           </div>
 
           <div className="inputBox">
-            <select
-              {...register("status")}
-              className="box"
-              defaultValue=""
-            >
+            <select {...register("status")} className="box" defaultValue="">
               <option value="" disabled>
                 Selecione seu status
               </option>
@@ -130,7 +135,7 @@ function Signup() {
             <input
               type="password"
               {...register("password")}
-              placeholder="Sua palavra-pass"
+              placeholder="Sua senha"
               className="box"
             />
             <p className="error-msg">{errors.password?.message}</p>
@@ -139,11 +144,11 @@ function Signup() {
           <div className="inputBox">
             <input
               type="password"
-              {...register("ConfirmPassword")}
-              placeholder="Confirme sua palavra-pass"
+              {...register("confirmPassword")}
+              placeholder="Confirme sua senha"
               className="box"
             />
-            <p className="error-msg">{errors.ConfirmPassword?.message}</p>
+            <p className="error-msg">{errors.confirmPassword?.message}</p>
           </div>
 
           <button type="submit" className="btn">
@@ -158,7 +163,7 @@ function Signup() {
       <ToastContainer
         toastClassName="toast-tam"
         position="top-right"
-        autoClose={4000}
+        autoClose={5000}
       />
     </>
   );
