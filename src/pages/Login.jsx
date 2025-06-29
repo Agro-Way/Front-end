@@ -31,11 +31,12 @@ function Login() {
         }
       );
 
-      const token = response.data.access_token;
-      console.log("Token recebido:", token);
+      const {user, token} = response.data
 
-      // Armazena o token no localStorage
-      localStorage.setItem("token", token);
+      // Armazena os dados no localstorage
+      localStorage.setItem("user", JSON.stringify(user))
+      localStorage.setItem("token", token)
+
 
       toast.success("Login feito com sucesso!");
       reset();
