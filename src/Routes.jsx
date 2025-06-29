@@ -26,7 +26,6 @@ import Checkout from "./pages/Checkout";
 import PedidoConfirmado from "./pages/PedidoConfirmado";
 import DetalhesProdutos from "./pages/DetalhesProdutos";
 import Login from "./pages/Login";
-import Login2 from "./pages/Login2";
 import Signup from "./pages/Signup";
 import MotoristaInfo from "./pages/MotoristaInfo";
 import RecuperarSenha from "./pages/RecuperarSenha";
@@ -78,7 +77,6 @@ function AppRoutes() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/pedido-confirmado" element={<PedidoConfirmado />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login2" element={<Login2 />} />
         <Route path="/cadastrar" element={<Signup />} />
         <Route path="/motorista-info" element={<MotoristaInfo />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
