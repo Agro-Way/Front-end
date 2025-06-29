@@ -1,6 +1,6 @@
 // src/pages/MotoristaInfo.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./../assets/css/signup.css";
 //import SignStyle from '@/assets/css/SignStyle';
@@ -8,9 +8,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cadastroVeiculoValidation } from "../validations/cadastroVeiculoValidation";
 import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
 
 function MotoristaInfo() {
   useDocumentTitle("Cadastrar Veículo | Agroway");
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,19 +24,45 @@ function MotoristaInfo() {
     resolver: yupResolver(cadastroVeiculoValidation),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     try {
-      const imagem = data.imagemCarro[0]
-      console.log({
+      const imagem = data.imagemCarro[0];
+      const payload = {
         marca: data.marcaCarro,
         modelo: data.modeloCarro,
         placa: data.placaCarro,
         imagem: imagem.name,
-      });
-      toast.success("Cadastro feito com sucesso!");
-      reset(); // Limpa o formulário
+      };
+
+      const response = await axios.post("/api/driver/", payload);
+
+      // Verifica se o status está OK
+      if (response.status === 201 || response.status === 200) {
+        const msg = response.data?.message || "Cadastro do carro feito com sucesso!";
+        toast.success(msg);
+        reset();
+
+        // Redireciona após delay
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+
+      } else {
+        // Trata casos inesperados de sucesso
+        toast.warn("Cadastro do carro concluído, mas a resposta foi inesperada.");
+        console.warn("Resposta inesperada:", response);
+      }
+
     } catch (error) {
-      toast.error("Erro ao fazer cadastro. Tente novamente.");
+      console.error("Erro ao fazer cadastro do carro:", error);
+
+      if (error.response?.data?.message) {
+        toast.error(`Erro: ${error.response.data.message}`);
+      } else if(error.response?.status === 400) {
+        toast.error("Erro de validação. Verifique os dados informados.");
+      } else {
+        toast.error("Erro ao fazer cadastro do carro. Tente novamente.");
+      }
     }
   };
 
