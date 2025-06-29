@@ -44,7 +44,11 @@ function Signup() {
 
         // Redireciona após delay
         setTimeout(() => {
-          navigate("/login");
+          if (data.role === "CONDUTOR") {
+            navigate("/motorista-info")
+          } else {
+            navigate("/login");
+          }
         }, 3000);
         
       } else {
