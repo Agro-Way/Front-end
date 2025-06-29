@@ -42,7 +42,13 @@ function Login() {
 
       // Redireciona após um pequeno delay
       setTimeout(() => {
-        navigate("/dashboard");
+        if (data.role === "PRODUTOR") {
+           navigate("/dashboard");
+        } else if(data.role === "") {
+           navigate("/dashboard-motorista");
+        } else {
+          navigate("/");
+        }
       }, 3000);
       
     } catch (error) {
