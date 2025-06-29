@@ -89,65 +89,80 @@ function AppRoutes() {
           element={<RedefinirSenha />}
         />
         <Route path="/termos-condicoes" element={<TermosCondicoes />} />
-        <Route path="/politicas-privacidade" element={<PoliticaPrivacidade />} />
+        <Route
+          path="/politicas-privacidade"
+          element={<PoliticaPrivacidade />}
+        />
 
         {/* Dashboard produtor */}
         <Route
           path="/dashboard"
           element={
             <PrivateRoute>
-            <DashboardLayout>
-              <OverviewPage />
-            </DashboardLayout>
+              <DashboardLayout>
+                <OverviewPage />
+              </DashboardLayout>
             </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/produtos"
           element={
-            <DashboardLayout>
-              <ProductsPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <ProductsPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/clientes-motoristas"
           element={
-            <DashboardLayout>
-              <UsersPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <UsersPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/vendas"
           element={
-            <DashboardLayout>
-              <SalesPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <SalesPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/pedidos"
           element={
-            <DashboardLayout>
-              <OrdersPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <OrdersPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/analises"
           element={
-            <DashboardLayout>
-              <AnalyticsPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <AnalyticsPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/definicoes"
           element={
-            <DashboardLayout>
-              <SettingsPage />
-            </DashboardLayout>
+            <PrivateRoute>
+              <DashboardLayout>
+                <SettingsPage />
+              </DashboardLayout>
+            </PrivateRoute>
           }
         />
 
@@ -155,33 +170,41 @@ function AppRoutes() {
         <Route
           path="/dashboard-motorista/"
           element={
-            <DashboardDriverLayout>
-              <OverviewDriverPage />
-            </DashboardDriverLayout>
+            <PrivateRoute>
+              <DashboardDriverLayout>
+                <OverviewDriverPage />
+              </DashboardDriverLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard-motorista/pedidos"
           element={
-            <DashboardDriverLayout>
-              <OrdersDriverPage />
-            </DashboardDriverLayout>
+            <PrivateRoute>
+              <DashboardDriverLayout>
+                <OrdersDriverPage />
+              </DashboardDriverLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard-motorista/analises"
           element={
-            <DashboardDriverLayout>
-              <AnalyticsDriverPage />
-            </DashboardDriverLayout>
+            <PrivateRoute>
+              <DashboardDriverLayout>
+                <AnalyticsDriverPage />
+              </DashboardDriverLayout>
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard-motorista/definicoes"
           element={
-            <DashboardDriverLayout>
-              <SettingsDriverPage />
-            </DashboardDriverLayout>
+            <PrivateRoute>
+              <DashboardDriverLayout>
+                <SettingsDriverPage />
+              </DashboardDriverLayout>
+            </PrivateRoute>
           }
         />
 
@@ -190,13 +213,17 @@ function AppRoutes() {
           path="*"
           element={
             isDashboardDriver ? (
+              <PrivateRoute>
               <DashboardDriverLayout>
                 <DashboardDriverNotFound />
               </DashboardDriverLayout>
+              </PrivateRoute>
             ) : isDashboardProducer ? (
+              <PrivateRoute>
               <DashboardLayout>
                 <DashboardNotFound />
               </DashboardLayout>
+              </PrivateRoute>
             ) : (
               <NotFound />
             )
