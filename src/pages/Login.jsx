@@ -31,6 +31,8 @@ function Login() {
         }
       );
 
+      console.log("Resposta do login:", response)
+
       const {user, token} = response.data
 
       // Armazena os dados no localstorage
@@ -43,9 +45,9 @@ function Login() {
 
       // Redireciona após um pequeno delay
       setTimeout(() => {
-        if (data.role === "PRODUTOR") {
+        if (user.role === "PRODUTOR") {
            navigate("/dashboard");
-        } else if(data.role === "") {
+        } else if(user.role === "CONDUTOR") {
            navigate("/dashboard-motorista");
         } else {
           navigate("/");
