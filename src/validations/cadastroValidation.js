@@ -15,7 +15,7 @@ export const cadastroValidation = yup.object().shape({
     .oneOf([yup.ref("password")], "As senhas não coincidem."),
   role: yup
     .string().required("A função é obrigatória.")
-    .oneOf(["USUARIO", "CONDUTOR", "MOTORISTA"], "Selecione uma função válida."),
+    .oneOf(["USUARIO", "CONDUTOR", "PRODUTOR"], "Selecione uma função válida."),
   status: yup
     .string().required("A função é obrigatória.")
     .oneOf(["ATIVO", "INATIVO", "PENDENTE", "BANIDO"], "Selecione um status válido."),
