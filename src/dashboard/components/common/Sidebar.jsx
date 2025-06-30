@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "@/utils/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 const SIDEBAR_ITEMS = [
   {
@@ -72,7 +73,6 @@ const Sidebar = () => {
 						key={item.href}
 						onClick={() => {
 							logout();
-							navigate("/login");
 							toast.success("Sessão encerrada com sucesso.");
 							setTimeout(() => {
 								navigate("/login");
@@ -95,6 +95,8 @@ const Sidebar = () => {
 				</nav>
 			</div>
 		</motion.div>
+
+		<ToastContainer toastClassName="toast-tam" position="top-right" autoClose={3000}/>
 	</>
   );
 };
