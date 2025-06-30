@@ -102,11 +102,7 @@ function Login() {
         </form>
       </section>
 
-      <ToastContainer
-        toastClassName="toast-tam"
-        position="top-right"
-        autoClose={5000}
-      />
+      <ToastContainer toastClassName="toast-tam" position="top-right" autoClose={5000}/>
     </>
   );
 }
