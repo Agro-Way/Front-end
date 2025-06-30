@@ -3,6 +3,7 @@ import { User } from "lucide-react";
 import SettingSection from "./SettingSection";
 import Modal from '../../components/common/Modal';
 import EditProfileForm from '../../components/forms/EditProfileForm';
+import {getUser} from "@/utils/auth";
 
 const Profile = () => {
 	// Hook useState para armazenar os dados do modal (título e conteúdo)
@@ -19,6 +20,9 @@ const Profile = () => {
 	// Simplesmente define modalData como null, o que faz com que o modal deixe de ser renderizado
 	const closeModal = () => setModalData(null)
 
+	//pegando os dados do usuário
+	const user = getUser()
+
 	return (
 		<SettingSection icon={User} title={"Perfil"}>
 			<div className='flex flex-col sm:flex-row items-center mb-6'>
@@ -29,8 +33,9 @@ const Profile = () => {
 				/>
 
 				<div>
-					<h3 className='text-lg font-semibold text-gray-100'>John Doe</h3>
-					<p className='text-gray-400'>john.doe@example.com</p>
+					<h3 className='text-lg font-semibold text-gray-100'>{user?.name}</h3>
+					<p className='text-gray-400'>{user?.email}</p>
+					<p className='text-gray-400'>{user?.telefone}</p>
 				</div>
 			</div>
 

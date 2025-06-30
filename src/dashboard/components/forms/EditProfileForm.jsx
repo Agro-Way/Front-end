@@ -1,7 +1,11 @@
 import { useState, React } from 'react';
+import {getUser} from "@/utils/auth";
 
 // Componente que renderiza o formul[ario]
 const EditProfileForm = () => {
+	//pegando os dados do usuário
+	const user = getUser()
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// lógica de envio
@@ -20,6 +24,7 @@ const EditProfileForm = () => {
                     type="text"
                     id="nome"
                     placeholder="Digite o nome do perfil"
+					value={user?.name}
                     required
                     className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
@@ -33,6 +38,7 @@ const EditProfileForm = () => {
 					type="email"
 					id="preco"
 					placeholder="exemplo@gmail.com"
+					value={user?.email}
 					required
 				    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				/>

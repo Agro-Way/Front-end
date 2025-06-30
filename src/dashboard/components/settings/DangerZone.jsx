@@ -31,7 +31,7 @@ const DangerZone = () => {
 				<h2 className='text-xl font-semibold text-gray-100'>Zona Perigosa</h2>
 			</div>
 			<p className='text-gray-300 mb-4'>Eliminar permanentemente a sua conta e o seu conteúdo.</p>
-			<button className='bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-200'
+			<button type="button" className='bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-200'
 			onClick={() =>
 				openModal({
 					title: 'Eliminar Perfil',

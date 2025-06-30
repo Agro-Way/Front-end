@@ -31,20 +31,23 @@ function Login() {
         }
       );
 
-      const token = response.data.access_token;
-      console.log("Token recebido:", token);
+      console.log("Resposta do login:", response)
 
-      // Armazena o token no localStorage
-      localStorage.setItem("token", token);
+      const {user, token} = response.data
+
+      // Armazena os dados no localstorage
+      localStorage.setItem("user", JSON.stringify(user))
+      localStorage.setItem("token", token)
+
 
       toast.success("Login feito com sucesso!");
       reset();
 
       // Redireciona após um pequeno delay
       setTimeout(() => {
-        if (data.role === "PRODUTOR") {
+        if (user.role === "PRODUTOR") {
            navigate("/dashboard");
-        } else if(data.role === "") {
+        } else if(user.role === "CONDUTOR") {
            navigate("/dashboard-motorista");
         } else {
           navigate("/");
@@ -99,11 +102,7 @@ function Login() {
         </form>
       </section>
 
-      <ToastContainer
-        toastClassName="toast-tam"
-        position="top-right"
-        autoClose={5000}
-      />
+      <ToastContainer toastClassName="toast-tam" position="top-right" autoClose={5000}/>
     </>
   );
 }
