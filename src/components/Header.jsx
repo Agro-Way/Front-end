@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useModal } from "../context/ModalContext"; //Importa o contexto do modal
+import {getUser, logout} from "@/utils/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 function Header() {
   const [menuAtivo, setMenuAtivo] = useState(false);
@@ -19,7 +21,49 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navigate = useNavigate();
+
+  //pegando os dados do usuário
+	const user = getUser()
+
+  // Escolher ícone baseado no tipo de usuário
+  const renderUserIcon = () => {
+    if (!user) {
+      return (
+        <Link to="/login" className="fas fa-sign-in-alt" id="login-btn" title="Entrar" />
+      );
+    }
+
+    switch (user.role) {
+      case "PRODUTOR":
+        return (
+          <Link to="/dashboard" className="fas fa-cogs" title="Painel Admin" />
+        );
+      case "CONDUTOR":
+        return (
+          <Link to="/dashboard-motorista" className="fas fa-cogs" title="Painel Admin" />
+        );
+      case "USUARIO":
+        return (
+          <Link to="/" className="fas fa-right-from-bracket" title="Estou no site, clica em mim para sair"
+          onClick={() => {
+            logout();
+            toast.success("Sessão encerrada com sucesso.");
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
+          }}
+          />
+        );
+      default:
+        return (
+          <Link to="/login" className="fas fa-sign-in-alt" title="Entrar" />
+        );
+    }
+  };
+
   return (
+    <>
     <header className="header">
       <Link to="/" className="logo">
         Agro<span>way</span>
@@ -34,7 +78,10 @@ function Header() {
       </nav>
 
       <div className="icons">
-        <Link to="/login" className="fas fa-user" id="login-btn" />
+        {user?.name && <button type="button" className="toast-tam">{user.name}</button>}
+        {renderUserIcon()}
+        {/*<button type="button">{user?.name}</button>*/}
+        {/*<Link to="/login" className="fas fa-user" id="login-btn" />*/}
         <Link to="/carrinho" className="fas fa-shopping-cart" id="cart-btn">
           <span className="count">0</span>
         </Link>
@@ -46,6 +93,9 @@ function Header() {
         />
       </div>
     </header>
+
+    <ToastContainer toastClassName="toast-tam" position="top-right" autoClose={3000}/>
+    </>
   );
 }
 
