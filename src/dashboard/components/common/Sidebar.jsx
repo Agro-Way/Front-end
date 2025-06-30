@@ -1,4 +1,4 @@
-import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users, LogOut,} from "lucide-react";
+import { BarChart2, DollarSign, Monitor, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users, LogOut,} from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,6 +6,12 @@ import { logout } from "@/utils/auth";
 import { toast, ToastContainer } from "react-toastify";
 
 const SIDEBAR_ITEMS = [
+   {
+    name: "Ver o site",
+    icon: Monitor,
+    color: "#6366f5",
+    href: "/",
+  },
   {
     name: "Visão Global",
     icon: BarChart2,
