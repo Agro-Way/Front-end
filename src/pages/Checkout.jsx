@@ -7,11 +7,17 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import './../assets/css/checkout.css'
 import { formatarKz } from "../utils/Format";
+import { useCarrinho } from "../contexts/CarrinhoContext";
 
 function Checkout() {
   useDocumentTitle("Checkout | Agroway");
 
-  const [quantidade, setQuantidade] = useState(1);
+  const { itensCarrinho } = useCarrinho(); //pegar produtos do carrinho
+  
+  const total = itensCarrinho.reduce(
+    (acc, item) => acc + item.preco * item.quantidade,
+    0
+  );
 
   return (
     <>
@@ -23,19 +29,15 @@ function Checkout() {
         <form action="/pedido-confirmado" method="POST" className="form-checkout" encType="multipart/form-data">
           <h2 className="title">Resumo do Pedido</h2>
           <div className="form-group">
-            <div class="product">
-              <img src="https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww" alt="Produto 1"/>
-              <div class="product-details">
-                <p>Produto 1 - {formatarKz(50)}</p>
+            {itensCarrinho.map((item) => (
+              <div className="product" key={item.id}>
+                <img src={item.imagem} alt={item.nome} />
+                <div className="product-details">
+                  <p>{item.nome} — {item.quantidade}x {formatarKz(item.preco)} = {formatarKz(item.preco * item.quantidade)}</p>
+                </div>
               </div>
-            </div>
-            <div class="product">
-              <img src="https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww" alt="Produto 2"/>
-              <div class="product-details">
-                <p>Produto 1 - {formatarKz(30)}</p>
-              </div>
-            </div>
-            <p class="total">Total: {formatarKz(80)}</p>
+            ))}
+            <p className="total">Total: {formatarKz(total)}</p>
           </div>
 
           <h2>Informações do Cliente</h2>
