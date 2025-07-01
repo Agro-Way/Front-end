@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useModal } from "../contexts/ModalContext"; //Importa o contexto do modal
 import {getUser, logout} from "@/utils/auth";
 import { toast, ToastContainer } from "react-toastify";
+import { useCarrinho } from "../contexts/CarrinhoContext";
 
 function Header() {
   const [menuAtivo, setMenuAtivo] = useState(false);
@@ -25,6 +26,7 @@ function Header() {
 
   //pegando os dados do usuário
 	const user = getUser()
+  const { itensCarrinho } = useCarrinho();
 
   // Escolher ícone baseado no tipo de usuário
   const renderUserIcon = () => {
@@ -62,6 +64,12 @@ function Header() {
     }
   };
 
+  // calcular total de itens no carrinho
+  const totalItensNoCarrinho = itensCarrinho.reduce(
+    (total, item) => total + item.quantidade,
+    0
+  );
+
   return (
     <>
     <header className="header">
@@ -80,10 +88,10 @@ function Header() {
       <div className="icons">
         {user?.name && <button type="button" className="toast-tam">{user.name}</button>}
         {renderUserIcon()}
-        {/*<button type="button">{user?.name}</button>*/}
-        {/*<Link to="/login" className="fas fa-user" id="login-btn" />*/}
         <Link to="/carrinho" className="fas fa-shopping-cart" id="cart-btn">
-          <span className="count">0</span>
+          {totalItensNoCarrinho > 0 && (
+            <span className="count">{totalItensNoCarrinho}</span>
+          )}
         </Link>
         {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <div
