@@ -38,6 +38,7 @@ export function CarrinhoProvider({ children }) {
 
   // Função para atualizar a quantidade de um item específico
   function atualizarQuantidade(id, quantidade) {
+    // Muda apenas a quantidade do item com aquele ID
     setItensCarrinho((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, quantidade: Number(quantidade) } : item
@@ -47,7 +48,7 @@ export function CarrinhoProvider({ children }) {
 
   // Função para limpar todo o carrinho
   function limparCarrinho() {
-    setItensCarrinho([]);
+    setItensCarrinho([]); //Esvazia o carrinho
   }
 
   // Aqui fornecemos os dados e funções do carrinho para os componentes que estiverem dentro do CarrinhoProvider
