@@ -1,12 +1,13 @@
 // src/pages/Carrinho.jsx
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './../assets/css/carrinho.css';
 import { formatarKz } from "../utils/Format";
-import { useCarrinho } from '../contexts/CarrinhoContext'; // IMPORTANTE
+import { useCarrinho } from '../contexts/CarrinhoContext';
+import { getUser } from '../utils/auth';
 
 function Carrinho() {
   useDocumentTitle('Carrinho | Agroway');
@@ -14,6 +15,9 @@ function Carrinho() {
   const [provinciaSelecionada, setProvinciaSelecionada] = useState("Bengo");
   const [frete, setFrete] = useState(0);
   const { itensCarrinho, removerDoCarrinho, atualizarQuantidade, limparCarrinho } = useCarrinho();
+
+  const navigate = useNavigate(); // usado para redirecionar
+  const user = getUser(); // verifica se o usuário está logado
 
   const provincias = {
     "Bengo": 780, "Benguela": 800, "Bié": 870, "Cabinda": 950, "Cuando Cubango": 1000,
@@ -30,6 +34,15 @@ function Carrinho() {
     (total, item) => total + item.preco * item.quantidade,
     0
   );
+
+  // Função chamada ao tentar finalizar compra
+  const handleFinalizarCompra = () => {
+    if (!user) {
+      navigate("/login"); // Redireciona para login se não estiver logado
+    } else {
+      navigate("/checkout"); // Vai para o checkout se estiver logado
+    }
+  };
 
   return (
     <>
@@ -116,9 +129,9 @@ function Carrinho() {
                 >
                   Limpar Carrinho
                 </button>
-                <Link to="/checkout" className="btn checkout-btn">
+                <button type="button" className="btn checkout-btn" onClick={handleFinalizarCompra}>
                   Finalizar Compra
-                </Link>
+                </button>
               </div>
             </form>
           )}
