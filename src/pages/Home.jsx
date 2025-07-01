@@ -9,9 +9,11 @@ import sobreImg from "../assets/img/sobre.jpg";
 import produtos from "../components/DadosProdutos"
 import blogs from "../components/DadosBlogs"
 import { formatarKz } from "../utils/Format";
+import { useCarrinho } from "../contexts/CarrinhoContext"; // IMPORTANTE
 
 function Home() {
   useDocumentTitle("Agroway");
+  const { adicionarAoCarrinho } = useCarrinho(); // Hook do contexto
 
   return (
     <>
@@ -123,7 +125,7 @@ function Home() {
                     <h3>{produto.nome}</h3>
                     <div className="price">{formatarKz(produto.preco)}</div>
                     <div />
-                    <Link to="/carrinho" className="fas fa-shopping-cart" />
+                    <Link to="/carrinho" className="fas fa-shopping-cart" onClick={() => adicionarAoCarrinho(produto)} />
                     <Link to={`/produtos/detalhes/${produto.id}`} className="fas fa-eye" />
                   </div>
                 </div>
