@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "./Modal";
-import { useModal } from "../context/ModalContext";
+import { useModal } from "../contexts/ModalContext";
 import "./../assets/css/consultar.css";
 
 const ModalWrapper = () => {
