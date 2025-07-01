@@ -1,7 +1,7 @@
 // src/components/Modal.jsx
 import React, { useEffect, useRef } from 'react';
 import '../assets/css/Modal.css';
-import { useModal } from '../context/ModalContext'; // Importa o contexto
+import { useModal } from '../contexts/ModalContext'; // Importa o contexto
 
 const Modal = ({ isOpen, onClose, title = 'Título do Modal', children }) => {
   const modalRef = useRef(null);

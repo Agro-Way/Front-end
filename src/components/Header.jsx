@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useModal } from "../context/ModalContext"; //Importa o contexto do modal
+import { useModal } from "../contexts/ModalContext"; //Importa o contexto do modal
 import {getUser, logout} from "@/utils/auth";
 import { toast, ToastContainer } from "react-toastify";
 

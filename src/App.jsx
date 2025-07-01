@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ModalProvider } from './context/ModalContext';
+import { ModalProvider } from './contexts/ModalContext';
 import AppRoutes from './Routes';
 
 function App() {
