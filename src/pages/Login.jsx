@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation2 } from "../validations/loginValidation2";
 import { toast, ToastContainer } from "react-toastify";
+import api from "../services/api";
 
 function Login() {
   useDocumentTitle("Login | Agroway");
@@ -24,7 +25,7 @@ function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("api/auth/login",
+      const response = await api.post("api/auth/login",
         {
           email: data.email,
           password: data.senha, 
