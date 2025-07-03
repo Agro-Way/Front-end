@@ -1,5 +1,7 @@
 // Importações necessárias do React
 import { createContext, useContext, useState, useEffect } from "react";
+// Importação do toast do react-toastify para exibir mensagens visuais
+import { toast } from "react-toastify";
 
 // Criamos o contexto que permitirá compartilhar dados do carrinho com toda a aplicação
 const CarrinhoContext = createContext();
@@ -20,35 +22,64 @@ export function CarrinhoProvider({ children }) {
 
   // Função para adicionar um produto ao carrinho
   function adicionarAoCarrinho(produto) {
-    setItensCarrinho((prev) =>
-      prev.find((item) => item.id === produto.id) // Verifica se o produto já está no carrinho
+    setItensCarrinho((prev) => {
+      const novoCarrinho = prev.find((item) => item.id === produto.id)
         ? prev.map((item) =>
             item.id === produto.id
               ? { ...item, quantidade: item.quantidade + 1 } // Se já existe, aumenta a quantidade
               : item
           )
-        : [...prev, { ...produto, quantidade: 1 }] // Se não existe, adiciona com quantidade 1
-    );
+        : [...prev, { ...produto, quantidade: 1 }]; // Se não existe, adiciona com quantidade 1
+
+      // Exibe toast de sucesso ao adicionar produto
+      toast.success(`"${produto.nome}" adicionado ao carrinho!`);
+      return novoCarrinho;
+    });
   }
 
   // Função para remover um item do carrinho pelo seu ID
   function removerDoCarrinho(id) {
-    setItensCarrinho((prev) => prev.filter((item) => item.id !== id));
+    setItensCarrinho((prev) => {
+      const itemRemovido = prev.find((item) => item.id === id); // Verifica se o item existe
+      const novoCarrinho = prev.filter((item) => item.id !== id); // Remove o item se existir
+
+      if (itemRemovido) {
+        // Exibe toast informando que o item foi removido
+        toast.info(`"${itemRemovido.nome}" removido do carrinho.`);
+      } else {
+        // Caso tente remover um item que não está no carrinho
+        toast.warning("Item não encontrado no carrinho.");
+      }
+
+      return novoCarrinho;
+    });
   }
 
   // Função para atualizar a quantidade de um item específico
   function atualizarQuantidade(id, quantidade) {
-    // Muda apenas a quantidade do item com aquele ID
-    setItensCarrinho((prev) =>
-      prev.map((item) =>
+    setItensCarrinho((prev) => {
+      const itemAtualizado = prev.find((item) => item.id === id); // Verifica se o item existe
+      const novoCarrinho = prev.map((item) =>
         item.id === id ? { ...item, quantidade: Number(quantidade) } : item
-      )
-    );
+      );
+
+      // Exibe toast informando que a quantidade foi atualizada
+      if (itemAtualizado) {
+        toast.info(
+          `Quantidade de "${itemAtualizado.nome}" atualizada para ${quantidade}.`
+        );
+      }
+
+      return novoCarrinho;
+    });
   }
 
   // Função para limpar todo o carrinho
   function limparCarrinho() {
-    setItensCarrinho([]); //Esvazia o carrinho
+    setItensCarrinho([]); // Esvazia o carrinho
+
+    // Exibe toast informando que o carrinho foi limpo
+    toast.warn("Carrinho esvaziado.");
   }
 
   // Aqui fornecemos os dados e funções do carrinho para os componentes que estiverem dentro do CarrinhoProvider
