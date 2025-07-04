@@ -9,7 +9,9 @@ export function ToastProvider() {
       position="top-right"
       autoClose={3000}
       hideProgressBar={false}
+      newestOnTop={true}
       closeOnClick
+      rtl={false}
       pauseOnHover
       draggable
       theme="light"
