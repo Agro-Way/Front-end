@@ -76,7 +76,7 @@ export function CarrinhoProvider({ children }) {
   function limparCarrinho() {
     setItensCarrinho([]); // Esvazia o carrinho
 
-    toast.clearWaitingQueue(); // Limpa toasts pendentes
+    
     // Exibe toast informando que o carrinho foi limpo
     toast.warn("Carrinho esvaziado.");
   }
