@@ -21,3 +21,8 @@ export const placaAngolaRegex = /^([A-Z]{2}-\d{2}-\d{2}|[A-Z]{2}-\d{2}-\d{2}-[A-
  * Aceita apenas números (sem espaços, letras ou símbolos)
  */
 export const apenasNumerosRegex = /^\d+$/;
+
+/**
+ * Aceita apenas letras
+ */
+export const apenasLetras = /^[A-Za-zÀ-ÿ\s]+$/

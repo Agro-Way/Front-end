@@ -132,6 +132,8 @@ function Carrinho() {
                 <button type="button" className="btn checkout-btn" onClick={handleFinalizarCompra}>
                   Finalizar Compra
                 </button>
+                {/* alternativa 2 */}
+                {/*<Link to="/checkout" className="btn">Finaliza Compra</Link>*/}
               </div>
             </form>
           )}

@@ -7,7 +7,7 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "https://agro-way-api.onrender.com",
-    timeout: 10,
+    //timeout: 10,
     headers: {
         "Content-Type": "application/json"
     }

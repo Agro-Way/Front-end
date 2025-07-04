@@ -35,7 +35,7 @@ function Signup() {
         status: data.status,
       };
 
-      const response = await api.post("/api/auth/signup", payload);
+      const response = await axios.post("/api/auth/signup", payload);
 
       // Verifica se o status está OK
       if (response.status === 201 || response.status === 200) {
