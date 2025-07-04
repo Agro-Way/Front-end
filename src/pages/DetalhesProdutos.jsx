@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { formatarKz } from "../utils/Format";
 import produtos from "../components/DadosProdutos";
+import { useCarrinho } from "../contexts/CarrinhoContext";
 import "./../assets/css/detalhes.css";
 
 function DetalhesProdutos() {
   useDocumentTitle("Detalhes Do Produto | Agroway");
 
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { adicionarAoCarrinho } = useCarrinho();
   const produto = produtos.find(p => p.id === Number.parseInt(id));
 
   const [quantidade, setQuantidade] = useState(1);
@@ -33,6 +36,19 @@ function DetalhesProdutos() {
       </>
     );
   }
+
+  const handleAdicionar = () => {
+    adicionarAoCarrinho({
+      id: produto.id,
+      nome: produto.nome,
+      preco: produto.preco,
+      imagem: produto.imagem,
+      quantidade: quantidade,
+    });
+
+    // Redireciona após adicionar
+    navigate("/carrinho");
+  };
 
   return (
     <>
@@ -74,7 +90,8 @@ function DetalhesProdutos() {
               Total a pagar: <span id="total">{formatarKz(Number.isNaN(total) ? 0 : total)}</span>
             </div>
 
-            <Link to="/checkout" className="btn">Comprar Agora</Link>
+            <button type="button" onClick={handleAdicionar} className="btn">Adicionar ao Carrinho</button>
+            {/*<Link to="/carrinho" className="btn">Adicionar ao Carrinho</Link>*/}
           </div>
         </form>
       </section>
