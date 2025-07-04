@@ -31,53 +31,52 @@ export function CarrinhoProvider({ children }) {
           )
         : [...prev, { ...produto, quantidade: 1 }]; // Se não existe, adiciona com quantidade 1
 
-      // Exibe toast de sucesso ao adicionar produto
-      toast.success(`"${produto.nome}" adicionado ao carrinho!`);
       return novoCarrinho;
     });
+
+    // Exibe toast de sucesso ao adicionar produto
+    toast.success(`"${produto.nome}" adicionado ao carrinho!`);
   }
 
   // Função para remover um item do carrinho pelo seu ID
   function removerDoCarrinho(id) {
-    setItensCarrinho((prev) => {
-      const itemRemovido = prev.find((item) => item.id === id); // Verifica se o item existe
-      const novoCarrinho = prev.filter((item) => item.id !== id); // Remove o item se existir
+    const itemRemovido = itensCarrinho.find((item) => item.id === id); // Busca fora do setState
 
-      if (itemRemovido) {
-        // Exibe toast informando que o item foi removido
-        toast.info(`"${itemRemovido.nome}" removido do carrinho.`);
-      } else {
-        // Caso tente remover um item que não está no carrinho
-        toast.warning("Item não encontrado no carrinho.");
-      }
+    setItensCarrinho((prev) => prev.filter((item) => item.id !== id)); // Atualiza o carrinho
 
-      return novoCarrinho;
-    });
+    if (itemRemovido) {
+      // Exibe toast informando que o item foi removido
+      toast.info(`"${itemRemovido.nome}" removido do carrinho.`);
+    } else {
+      // Caso tente remover um item que não está no carrinho
+      toast.warning("Item não encontrado no carrinho.");
+    }
   }
 
   // Função para atualizar a quantidade de um item específico
   function atualizarQuantidade(id, quantidade) {
-    setItensCarrinho((prev) => {
-      const itemAtualizado = prev.find((item) => item.id === id); // Verifica se o item existe
-      const novoCarrinho = prev.map((item) =>
+    const itemAtualizado = itensCarrinho.find((item) => item.id === id); // Busca o item atual antes de atualizar
+
+    setItensCarrinho((prev) =>
+      prev.map((item) =>
         item.id === id ? { ...item, quantidade: Number(quantidade) } : item
+      )
+    );
+
+    // Exibe toast informando que a quantidade foi atualizada
+    if (itemAtualizado) {
+
+      toast.info(
+        `Quantidade de "${itemAtualizado.nome}" atualizada para ${quantidade}.`
       );
-
-      // Exibe toast informando que a quantidade foi atualizada
-      if (itemAtualizado) {
-        toast.info(
-          `Quantidade de "${itemAtualizado.nome}" atualizada para ${quantidade}.`
-        );
-      }
-
-      return novoCarrinho;
-    });
+    }
   }
 
   // Função para limpar todo o carrinho
   function limparCarrinho() {
     setItensCarrinho([]); // Esvazia o carrinho
 
+    toast.clearWaitingQueue(); // Limpa toasts pendentes
     // Exibe toast informando que o carrinho foi limpo
     toast.warn("Carrinho esvaziado.");
   }
@@ -86,14 +85,15 @@ export function CarrinhoProvider({ children }) {
   return (
     <CarrinhoContext.Provider
       value={{
-        itensCarrinho,           // Array de produtos no carrinho
-        adicionarAoCarrinho,     // Função para adicionar
-        removerDoCarrinho,       // Função para remover
-        atualizarQuantidade,     // Função para alterar quantidade
-        limparCarrinho           // Função para limpar tudo
+        itensCarrinho, // Array de produtos no carrinho
+        adicionarAoCarrinho, // Função para adicionar
+        removerDoCarrinho, // Função para remover
+        atualizarQuantidade, // Função para alterar quantidade
+        limparCarrinho, // Função para limpar tudo
       }}
     >
-      {children} {/* Renderiza todos os componentes filhos com acesso ao contexto */}
+      {children}{" "}
+      {/* Renderiza todos os componentes filhos com acesso ao contexto */}
     </CarrinhoContext.Provider>
   );
 }
