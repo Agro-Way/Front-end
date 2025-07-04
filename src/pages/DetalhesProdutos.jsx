@@ -1,83 +1,101 @@
-// src/pages/DetalhesProdutos.jsx
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { formatarKz } from "../utils/Format";
+import produtos from "../components/DadosProdutos";
+import { useCarrinho } from "../contexts/CarrinhoContext";
 import "./../assets/css/detalhes.css";
 
 function DetalhesProdutos() {
   useDocumentTitle("Detalhes Do Produto | Agroway");
 
-  const precoRef = useRef(null); // Referência ao <span id="preco">
-  const [quantidade, setQuantidade] = useState(1); // Quantidade do produto
-  const [total, setTotal] = useState("0 KZ"); // Total formatado em moeda
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { adicionarAoCarrinho } = useCarrinho();
+  const produto = produtos.find(p => p.id === Number.parseInt(id));
+
+  const [quantidade, setQuantidade] = useState(1);
+  const [total, setTotal] = useState(0); // agora um número
 
   useEffect(() => {
-    if (precoRef.current) {
-      // Pega texto do span, remove pontos
-      const precoTexto = precoRef.current.textContent
-      .replace(/[^\d,]/g, "")  // Remove símbolos e espaços (ex: "AOA ")
-      .replace(/\./g, "")      // Remove pontos de milhar
-      .replace(",", ".");      // Troca vírgula por ponto decimal;
-
-      const preco = Number.parseFloat(precoTexto); // Converte para número
-
-      const totalNumerico = preco * quantidade; // Calcula total
-
-      // Formata para moeda (Kwanza - AOA)
-      const totalFormatado = new Intl.NumberFormat('pt-AO', {
-        style: 'currency',
-        currency: 'AOA',
-        minimumFractionDigits: 2,
-      }).format(totalNumerico);
-
-      setTotal(totalFormatado); // Atualiza o estado com o total
+    if (produto) {
+      setTotal(produto.preco * quantidade);
     }
-    }, [quantidade]); // Atualiza sempre que a quantidade muda
+  }, [quantidade, produto]);
 
+  if (!produto) {
+    return (
+      <>
+        <Header />
+        <section className="detalhes-produtos pt-8">
+          <p className="none">Produto não encontrado.</p>
+        </section>
+        <Footer />
+      </>
+    );
+  }
+
+  const handleAdicionar = () => {
+    adicionarAoCarrinho({
+      id: produto.id,
+      nome: produto.nome,
+      preco: produto.preco,
+      imagem: produto.imagem,
+      quantidade: quantidade,
+    });
+
+    // Redireciona após adicionar
+    navigate("/carrinho");
+  };
 
   return (
     <>
-      {/*Header*/}
       <Header />
 
-      {/*Carrinho*/}
       <section className="detalhes-produtos pt-8">
-        <form action="" method="POST" className="form">
+        <form method="POST" className="form">
           <div className="produto-imagem">
-            <img src="/images/product-1.jpg" alt="Produto 1" />
+            <img src={produto.imagem} alt={produto.nome} />
           </div>
           <div className="produto-detalhes">
-            <h1>25 Kilos De Grãos</h1>
-            {/*<p className="price"> <span id="preco"  ref={precoRef}>280.000</span></p>*/}
+            <h1>{produto.nome}</h1>
+
             <p className="price">
-              <span id="preco" ref={precoRef}>
-                {new Intl.NumberFormat('pt-AO', {
-                  style: 'currency',
-                  currency: 'AOA',
-                }).format(280000)}
+              <span id="preco">
+                {formatarKz(produto.preco)}
               </span>
             </p>
+
             <p className="desc">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              {produto.desc}
             </p>
 
             <label htmlFor="quantidade">Quantidade:</label>
-            <input type="number" name="quantidade" id="quantidade" Value="{quantidade}" min="1" onChange={(e) => setQuantidade(Number.parseInt(e.target.value))} required/>
+            <input
+              type="number"
+              name="quantidade"
+              id="quantidade"
+              value={quantidade}
+              min="1"
+              onChange={(e) => {
+                const valor = Number.parseInt(e.target.value);
+                setQuantidade(Number.isNaN(valor) ? 1 : valor);
+              }}
+              required
+            />
 
             <div className="total">
-              Total a pagar: <span id="total">{total}</span>
+              Total a pagar: <span id="total">{formatarKz(Number.isNaN(total) ? 0 : total)}</span>
             </div>
 
-            <Link to="/checkout" className="btn">Comprar Agora</Link>
+            <button type="button" onClick={handleAdicionar} className="btn">Adicionar ao Carrinho</button>
+            {/*<Link to="/carrinho" className="btn">Adicionar ao Carrinho</Link>*/}
           </div>
         </form>
-        
       </section>
 
-      {/*footer*/}
       <Footer />
     </>
   );
