@@ -1,24 +1,136 @@
-import { useState, React } from 'react'
-import RichText from '../../components/richtext/RichText'
+import { useState, React } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; // caso queira redirecionar
+import { getUser, getToken } from "@/utils/auth";
+import api from "@/services/api";
 
-// Componente que renderiza o formul[ario]
+const mockCategorias = [
+  {
+    id: "cat-1",
+    nome: "Frutas",
+  },
+  {
+    id: "cat-2",
+    nome: "Legumes",
+  },
+  {
+    id: "cat-3",
+    nome: "Verduras",
+  },
+  {
+    id: "cat-4",
+    nome: "Cereais",
+  },
+  {
+    id: "cat-5",
+    nome: "Raízes",
+  },
+  {
+    id: "cat-6",
+    nome: "Grãos",
+  },
+];
+
+// Componente que renderiza o formulário
 const AddProductForm = () => {
-  const handleSubmit = e => {
-    e.preventDefault()
-    // lógica de envio
-    setShowModal(false)
-  }
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const [form, setForm] = useState({
-    mensagem: '',
-  })
+  //pegando os dados do usuário
+  const user = getUser();
+  const token = getToken();
 
-  const handleEditorChange = content => {
-    setForm(prev => ({ ...prev, mensagem: content }))
-  }
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const file = data.imagem[0];
+      const filename = file.name;
+      const contentType = file.type;
+
+      // 1. Cadastra produto (sem imagem ainda)
+      const productPayload = {
+        name: data.nome,
+        price: Number.parseFloat(data.preco),
+        quantity: Number.parseInt(data.qtd),
+        imageUrl: "", // será preenchido após upload
+        imageKey: "", // será preenchido após upload
+        categoryId: data.categoria, // deve ser o ID real da categoria
+        producerId: user?.name, // substitua pelo ID real
+      };
+
+      const response = await api.post("/api/products", productPayload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 201 || response.status === 200) {
+        const productId = response.data?.id;
+
+        // 2. Solicita URL pré-assinada
+        const signedUrlRes = await api.post(
+          `/api/products/${productId}/upload-url`,
+          {
+            filename,
+            contentType,
+          }
+        );
+
+        const { uploadUrl, imageUrl, imageKey } = signedUrlRes.data;
+
+        // 3. Faz upload direto para Cloudflare
+        await fetch(uploadUrl, {
+          method: "PUT",
+          headers: {
+            "Content-Type": contentType,
+          },
+          body: file,
+        });
+
+        // 4. Atualiza o produto com os dados da imagem
+        await api.patch(`/api/products/${productId}`, {
+          imageUrl,
+          imageKey,
+        });
+
+        const msg = response.data?.message || "Produto cadastrado com sucesso!";
+        toast.success(msg);
+        reset();
+
+        setTimeout(() => {
+          // Altere conforme seu fluxo
+          navigate("/dashboard/produtos");
+        }, 3000);
+      } else {
+        toast.warn("Produto cadastrado, mas a resposta foi inesperada.");
+        console.warn("Resposta inesperada:", response);
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar produto:", error);
+
+      if (error.response?.data?.message) {
+        toast.error(`Erro: ${error.response.data.message}`);
+      } else if (error.response?.status === 400) {
+        toast.error("Erro de validação. Verifique os dados informados.");
+      } else {
+        toast.error("Erro ao fazer cadastro. Tente novamente.");
+      }
+    }
+  };
 
   return (
-    <form onSubmit={e => e.preventDefault()} enctype="multipart/form-data" className='w-full'>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      encType="multipart/form-data"
+      className="w-full"
+    >
       {/* Linha com dois inputs */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <div>
@@ -31,6 +143,7 @@ const AddProductForm = () => {
           <input
             type="text"
             id="nome"
+            {...register("nome")}
             placeholder="Digite o nome do produto"
             required
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -47,6 +160,7 @@ const AddProductForm = () => {
           <input
             type="number"
             id="preco"
+            {...register("preco")}
             placeholder="Digite o preço do produto"
             required
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -54,7 +168,7 @@ const AddProductForm = () => {
         </div>
       </div>
 
-	  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <div>
           <label
             htmlFor="qtd"
@@ -65,6 +179,7 @@ const AddProductForm = () => {
           <input
             type="number"
             id="qtd"
+            {...register("qtd")}
             placeholder="Digite a quantidade do produto"
             required
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -80,8 +195,8 @@ const AddProductForm = () => {
           </label>
           <input
             type="file"
-            id="preco"
-            placeholder="Digite o preço do produto"
+            id="img"
+            {...register("imagem")}
             required
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
@@ -99,24 +214,21 @@ const AddProductForm = () => {
         <select
           required
           id="categoria"
+          {...register("categoria")}
           className="w-full border border-gray-300  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          <option value="" selected disabled>
+          <option value="" disabled selected>
             Selecione uma categoria
           </option>
-          <option value="Frutas" className="text-gray-900">
-            Frutas
-          </option>
-          <option value="Frutos" className="text-gray-900">
-            Frutos
-          </option>
-          <option value="Legumes" className="text-gray-900">
-            Legumes
-          </option>
+          {mockCategorias.map((cat) => (
+            <option key={cat.id} value={cat.id} className="text-gray-900">
+              {cat.nome}
+            </option>
+          ))}
         </select>
       </div>
 
-      {/* Editor de texto (Rich Text) */}
+      {/* Textarea para descrição */}
       <div className="mb-6">
         <label
           htmlFor="mensagem"
@@ -124,7 +236,14 @@ const AddProductForm = () => {
         >
           Descrição do Produto
         </label>
-        <RichText value={form.mensagem} onChange={handleEditorChange} />
+        <textarea
+          id="mensagem"
+          {...register("descricao")}
+          placeholder="Digite a descrição do produto"
+          rows={5}
+          required
+          className="w-full resize-none border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
       </div>
 
       {/* Botão de envio */}
@@ -137,12 +256,13 @@ const AddProductForm = () => {
         </button>
         <button
           type="submit"
-          className="w-full  cursor-pointer bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition"
+          className="w-full cursor-pointer bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition"
         >
           Adicionar Produto
         </button>
       </div>
     </form>
-  )
-}
-export default AddProductForm
+  );
+};
+
+export default AddProductForm;
