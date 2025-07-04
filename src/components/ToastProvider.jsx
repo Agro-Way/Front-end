@@ -8,6 +8,7 @@ export function ToastProvider() {
       toastClassName="toast-tam"
       position="top-right"
       autoClose={3000}
+      limit={1}
       hideProgressBar={false}
       newestOnTop={true}
       closeOnClick
